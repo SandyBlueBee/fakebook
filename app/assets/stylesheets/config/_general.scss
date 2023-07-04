@@ -2,3 +2,25 @@
   padding: 0;
   margin: 0;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+a{
+  text-decoration: none;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.container {
+  margin: 50px 10%;
+  display: flex;
+  gap: 50px;
+}

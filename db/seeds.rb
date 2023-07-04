@@ -7,4 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Creating users..."
+User.destroy_all
 User.create!(first_name: "Yoann", last_name: "Morillo", gender: "male", email:"yoann@test.com", password: "azerty")
+User.create!(first_name: "Sandy", last_name: "Blue", gender: "female", email:"sandy@test.com", password: "azerty")
