@@ -1,9 +1,10 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, only: :dashboard
+  before_action :authenticate_user!, only: :profile
 
   def home
   end
 
-  def dashboard
+  def profile
+    @user = current_user
   end
 end
