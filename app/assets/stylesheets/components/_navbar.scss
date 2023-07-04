@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
+
+nav {
+  height: 60px;
+  width: 100%;
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.nav-logo {
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+}
