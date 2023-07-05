@@ -26,3 +26,17 @@
 .post-new {
   flex-direction: row;
 }
+
+.form-post-new {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+textarea {
+  background-color: var(--background-color);
+  border: none;
+  border-radius: var(--border-radius);
+  width: 100%;
+  padding: 10px;
+}
