@@ -1,24 +1,34 @@
 <div class="profile-background">
   <%= image_tag ("user-background-default.jpg"), class:"profile-background-img" %>
 </div>
-<div class="container">
+<div class="container container-margin">
   <div class="section align-center">
     <%= image_tag ("user-profile-default.jpg"), class:"profile-face" %>
     <div>
       <h2>About me</h2>
-      <p><%= @user.first_name %> <%= @user.last_name %></p>
       <p>Gender: <%= @user.gender %></p>
       <p>Email: <%= @user.email %></p>
     </div>
   </div>
   <div style="width: 100%">
     <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-    <% if @user == current_user %>
-      <div class="section" style="width: 100%; flex-direction: row">
-        <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
-        <input type="text" placeholder="What's on your mind today?">
-        <button>post</button>
-      </div>
-    <% end %>
+    <div class="post-feed">
+      <% if @user == current_user %>
+        <div class="post post-new">
+          <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+          <input type="text" placeholder="What's on your mind today?">
+          <button>POST</button>
+        </div>
+      <% end %>
+      <% @user.posts.each do |post| %>
+        <div class="post">
+          <div class="post-display-user">
+            <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+            <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+          </div>
+          <p><%= post.content %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

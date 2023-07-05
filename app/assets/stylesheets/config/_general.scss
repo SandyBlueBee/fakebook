@@ -20,7 +20,10 @@ a{
 }
 
 .container {
-  margin: 50px 10%;
   display: flex;
   gap: 50px;
+}
+
+.container-margin {
+  margin: 50px 10%;
 }

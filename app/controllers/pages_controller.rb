@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @users = User.all
+    @feed = Post.all
   end
 
   def profile
