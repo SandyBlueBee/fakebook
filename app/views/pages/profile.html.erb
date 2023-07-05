@@ -14,11 +14,7 @@
     <h1><%= @user.first_name %> <%= @user.last_name %></h1>
     <div class="post-feed">
       <% if @user == current_user %>
-        <div class="post post-new">
-          <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
-          <input type="text" placeholder="What's on your mind today?">
-          <button>POST</button>
-        </div>
+        <%= render "createpost" %>
       <% end %>
       <% @user.posts.each do |post| %>
         <div class="post">
@@ -26,6 +22,7 @@
             <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
             <h3><%= @user.first_name %> <%= @user.last_name %></h3>
           </div>
+          <p>Created at <%= post.created_at %></p>
           <p><%= post.content %></p>
         </div>
       <% end %>

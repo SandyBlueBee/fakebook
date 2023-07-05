@@ -14,11 +14,7 @@
     <h1>Main feed</h1>
     <p>Find out the latest news:</p>
     <div class="post-feed">
-      <div class="post post-new">
-        <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
-        <input type="text" placeholder="What's on your mind today?">
-        <button>POST</button>
-      </div>
+      <%= render "createpost" %>
       <% @feed.each do |post| %>
         <div class="post">
           <div class="post-display-user">

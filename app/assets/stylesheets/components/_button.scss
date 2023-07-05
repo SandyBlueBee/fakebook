@@ -1,8 +1,9 @@
-button {
+.button {
   border: none;
   padding: 10px 20px;
   background-color: var(--secondary-color);
   font-weight: 700;
   color: white;
   border-radius: 5px;
+  width: fit-content;
 }

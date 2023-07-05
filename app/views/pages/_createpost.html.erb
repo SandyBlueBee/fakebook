@@ -1,0 +1,7 @@
+<div class="post post-new">
+  <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+  <%= form_with(model: [@user, @post], class: "form-post-new") do |f| %>
+  <%= f.text_area :content, placeholder: "What are you thinking about today?" %>
+  <%= f.submit class: "button" %>
+<% end %>
+</div>
