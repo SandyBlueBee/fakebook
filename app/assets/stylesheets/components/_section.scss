@@ -1,0 +1,10 @@
+.section {
+  width: fit-content;
+  background-color: var(--section-color);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
+  border-radius: var(--border-radius);
+}

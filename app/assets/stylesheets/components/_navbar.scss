@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
-
 nav {
   height: 60px;
-  width: 100%;
   background-color: var(--main-color);
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding-left: 20px;
+  padding-right: 20px;
 }
 
 .nav-logo {

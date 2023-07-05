@@ -2,9 +2,15 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: :profile
 
   def home
+    @users = User.all
+    @feed = Post.all
   end
 
   def profile
-    @user = current_user
+    if params[:format]
+      @user = User.find(params[:format])
+    else
+      @user = current_user
+    end
   end
 end

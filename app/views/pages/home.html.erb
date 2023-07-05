@@ -1,2 +1,37 @@
-<h1>home yall</h1>
-<%= link_to "profile", profile_path %>
+<div class="container">
+  <div class="section">
+    <h2>Online users:</h2>
+    <% @users.each do |user| %>
+      <%= link_to profile_path(user.id) do %>
+        <div class="contact-card">
+          <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+          <p><%= user.first_name %> <%= user.last_name %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div style="width: 100%">
+    <h1>Main feed</h1>
+    <p>Find out the latest news:</p>
+    <div class="post-feed">
+      <div class="post post-new">
+        <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+        <input type="text" placeholder="What's on your mind today?">
+        <button>POST</button>
+      </div>
+      <% @feed.each do |post| %>
+        <div class="post">
+          <div class="post-display-user">
+            <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+            <h3><%= post.user.first_name %> <%= post.user.last_name %></h3>
+          </div>
+          <p><%= post.content %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="section">
+    <h6>Your current conversations</h6>
+    <p>You have no current conversations.</p>
+  </div>
+</div>

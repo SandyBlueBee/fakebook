@@ -1,0 +1,15 @@
+.contact-card{
+  background-color: var(--background-color);
+  width: 200px;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-profile {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}

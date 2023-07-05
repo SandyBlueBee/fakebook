@@ -7,4 +7,12 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Creating users..."
+User.destroy_all
 User.create!(first_name: "Yoann", last_name: "Morillo", gender: "male", email:"yoann@test.com", password: "azerty")
+User.create!(first_name: "Sandy", last_name: "Blue", gender: "female", email:"sandy@test.com", password: "azerty")
+
+puts "Creating posts..."
+Post.destroy_all
+Post.create!(content: "Hi SANNDDYYYYY", user: User.first, likes: 5)
+Post.create!(content: "Hey guys! I'm new on Fakebook. Anybody have recommendations for new features?", user: User.last, likes: 35)
+Post.create!(content: "Yoann, stop messing with me! :)", user: User.last, likes: 32)
