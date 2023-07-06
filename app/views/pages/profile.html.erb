@@ -16,14 +16,26 @@
       <% if @user == current_user %>
         <%= render "createpost" %>
       <% end %>
-      <% @user.posts.each do |post| %>
+      <% @posts.each do |post| %>
         <div class="post">
-          <div class="post-display-user">
-            <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
-            <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+          <div class="post-header">
+            <div class="post-display-user">
+              <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+              <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+            </div>
+            <% if post.user == current_user %>
+              <div class="post-options-hover">
+                <%= image_tag "option-dots.png", class: "post-option-dots" %>
+              </div>
+            <% end %>
           </div>
-          <p>Created at <%= post.created_at %></p>
-          <p><%= post.content %></p>
+          <div class="post-content">
+            <p><%= post.content %></p>
+          </div>
+          <div class="post-buttons">
+            <button class="post-button">Like</button>
+            <button class="post-button">Comment</button>
+          </div>
         </div>
       <% end %>
     </div>
