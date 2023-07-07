@@ -95,6 +95,59 @@
   background-color: var(--shadow-color);
 }
 
+// Post comments
+
+.comment-count {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  color: var(--darkgrey-color);
+}
+
+.post-comments {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  gap: 10px;
+  border-top: 1px solid var(--shadow-color);
+}
+
+.post-comment {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.post-comment-content {
+  background-color: var(--background-color);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.post-comment-new {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top: 1px solid var(--shadow-color);
+  gap: 10px;
+  padding: 5px;
+}
+
+.form-post-comment-new {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+textarea {
+  background-color: var(--background-color);
+  border: none;
+  border-radius: var(--border-radius);
+  width: 100%;
+  padding: 10px;
+  height: 20px;
+}
+
 // Create new post form
 
 .post-new {

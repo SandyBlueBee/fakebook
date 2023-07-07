@@ -4,9 +4,9 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = @user
     if @post.save
-      redirect_to profile_path
+      redirect_to root_path, notice: 'Comment created successfully.'
     else
-      render :new, status: :unprocessable_entity
+      flash[:alert] = 'You are not authorized to perform this action.'
     end
   end
 

@@ -32,10 +32,28 @@
           <div class="post-content">
             <p><%= post.content %></p>
           </div>
+          <% unless post.comments.empty? %>
+            <p class="comment-count"><%= post.comments.count %> comment(s)</p>
+          <% end %>
           <div class="post-buttons">
             <button class="post-button">Like</button>
             <button class="post-button">Comment</button>
           </div>
+          <% @post.id = post.id %>
+          <% unless post.comments.empty? %>
+            <div class="post-comments">
+              <% post.comments.each do |comment| %>
+                <div class="post-comment">
+                  <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+                  <div class="post-comment-content">
+                    <p><strong><%= comment.user.first_name %> <%= comment.user.last_name %></strong></p>
+                    <p><%= comment.content %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+          <%= render "createpostcomment" %>
         </div>
       <% end %>
     </div>
