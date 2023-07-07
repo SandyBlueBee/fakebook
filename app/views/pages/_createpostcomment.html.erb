@@ -1,0 +1,7 @@
+<div class="post-comment-new">
+  <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+  <%= form_with(model: [@post, @comment], class: "form-post-comment-new") do |f| %>
+  <%= f.text_area :content, placeholder: "Comment this post here..." %>
+  <%= f.submit class: "button" %>
+<% end %>
+</div>
