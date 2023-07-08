@@ -3,12 +3,15 @@ class PagesController < ApplicationController
 
   def home
     @users = User.all
-    @feed = Post.all.sort_by { |post| post.created_at }.reverse
+    @posts = Post.all.sort_by { |post| post.created_at }.reverse
     @user = current_user
     @post = Post.new
+    @comment = Comment.new
+    @comment.post = @post
   end
 
   def profile
+    @users = User.all
     @post = Post.new
     if params[:format]
       @user = User.find(params[:format])

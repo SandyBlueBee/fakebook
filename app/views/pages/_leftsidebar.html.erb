@@ -1,0 +1,11 @@
+<div class="section">
+  <h2>Online users:</h2>
+  <% @users.each do |user| %>
+    <%= link_to profile_path(user.id) do %>
+      <div class="contact-card">
+        <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+        <p><%= user.first_name %> <%= user.last_name %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
