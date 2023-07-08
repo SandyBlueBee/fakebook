@@ -1,64 +1,14 @@
-<div class="container">
-  <div class="section" style="width: 500px">
-    <h2>Online users:</h2>
-    <% @users.each do |user| %>
-      <%= link_to profile_path(user.id) do %>
-        <div class="contact-card">
-          <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
-          <p><%= user.first_name %> <%= user.last_name %></p>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div style="width: 100%">
-    <h1>Main feed</h1>
-    <p>Find out the latest news:</p>
-    <div class="post-feed">
-      <% if current_user %>
-        <%= render "createpost" %>
-      <% end %>
-      <% @feed.each do |post| %>
-        <div class="post">
-          <div class="post-header">
-            <div class="post-display-user">
-              <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
-              <h3><%= post.user.first_name %> <%= post.user.last_name %></h3>
-            </div>
-            <% if post.user == current_user %>
-              <div class="post-options-hover">
-                <%= image_tag "option-dots.png", class: "post-option-dots" %>
-              </div>
-            <% end %>
-          </div>
-          <div class="post-content">
-            <p><%= post.content %></p>
-          </div>
-            <% unless post.comments.empty? %>
-              <p class="comment-count"><%= post.comments.count %> comment(s)</p>
-            <% end %>
-          <div class="post-buttons">
-            <button class="post-button">Like</button>
-            <button class="post-button">Comment</button>
-          </div>
-          <% unless post.comments.empty? %>
-            <div class="post-comments">
-              <% post.comments.each do |comment| %>
-                <div class="post-comment">
-                  <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
-                  <div class="post-comment-content">
-                    <p><strong><%= comment.user.first_name %> <%= comment.user.last_name %></strong></p>
-                    <p><%= comment.content %></p>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+<div class="page-layout">
+  <%= render "pages/leftsidebar" %>
+  <div class="page-content-scrollable">
+    <div class="home-feed">
+      <div class="post-feed">
+        <% if current_user %>
+          <%= render "createpost" %>
+        <% end %>
+        <%= render "feed" %>
+      </div>
     </div>
   </div>
-  <div class="section" style="width: 500px">
-    <h6>Your current conversations</h6>
-    <p>You have no current conversations.</p>
-  </div>
+  <%= render "pages/rightsidebar" %>
 </div>

@@ -3,12 +3,22 @@
   margin: 0;
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }
 
 body {
   background-color: var(--background-color);
+}
+
+.page-layout {
+  display: flex;
+}
+
+.page-content-scrollable{
+  height: calc(100vh - 60px);
+  width: 100%;
+  overflow: scroll;
 }
 
 a{
