@@ -132,6 +132,8 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
+    nokogiri (1.15.2-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -192,6 +194,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simple_form (5.2.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -230,6 +235,7 @@ GEM
     zeitwerk (2.6.8)
 
 PLATFORMS
+  x86_64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
@@ -244,6 +250,7 @@ DEPENDENCIES
   rails (~> 7.0.6)
   sassc-rails
   selenium-webdriver
+  simple_form
   sprockets-rails
   stimulus-rails
   turbo-rails
