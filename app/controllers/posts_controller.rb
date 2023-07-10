@@ -10,6 +10,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    @post = Post.all.find(params[:like][:likeable_id])
+    @like = Like.create(user: current_user, likeable_type: "Post", likeable_id: @post.id )
+    redirect_to root_path
+  end
+
+  def unlike
+    @like = Like.all.find(params[:format])
+    @like.destroy
+    redirect_to root_path
+  end
+
   private
 
   def post_params
