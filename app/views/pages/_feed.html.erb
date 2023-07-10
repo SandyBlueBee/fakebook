@@ -43,6 +43,18 @@
             <div class="post-comment-content">
               <p><strong><%= comment.user.first_name %> <%= comment.user.last_name %></strong></p>
               <p><%= comment.content %></p>
+              <% unless comment.likes.empty? %>
+                <p class="comment-count"><%= comment.likes.count %> like(s)</p>
+              <% end %>
+              <% commentliked = []  %>
+              <% current_user.likes.each do |like| %>
+                <% commentliked << like if like[:likeable_type] == "Comment" && like[:likeable_id] == comment.id %>
+              <% end %>
+              <% if commentliked.empty? %>
+                <%= button_to 'Like', comment_like_path(comment), method: :put, params: { like: { likeable_type: 'Comment', likeable_id: comment.id } } %>
+              <% else %>
+                <%= button_to 'Unlike', comment_unlike_path(comment, comment.likes.find_by(user_id: current_user.id)), method: :delete, params: { like: { likeable_type: 'Comment', likeable_id: comment.id } } %>
+              <% end %>
             </div>
           </div>
         <% end %>
