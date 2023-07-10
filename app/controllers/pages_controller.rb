@@ -7,6 +7,8 @@ class PagesController < ApplicationController
     @user = current_user
     @post = Post.new
     @comment = Comment.new
+    @like = Like.new
+    @like.user = current_user
     @comment.post = @post
   end
 
