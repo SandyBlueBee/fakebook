@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, only: :profile
+  before_action :authenticate_user!
 
   def home
     @users = User.all
