@@ -2,6 +2,12 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <%= f.file_field :avatar,
+                    required: true,
+                    input_html: { autocomplete: "avatar", multiple: true } %>
+  <%= f.file_field :background_image,
+                    required: true,
+                    input_html: { autocomplete: "background-image", multiple: true } %>
 
   <div class="field">
     <%= f.label :email %><br />
