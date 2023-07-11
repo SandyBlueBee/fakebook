@@ -20,7 +20,6 @@ Post.create!(content: "Hey guys! I'm new on Fakebook. Anybody have recommendatio
 Post.create!(content: "Yoann, stop messing with me! :)", user: User.last, likes: 32)
 
 
-file_youcef = URI.open('https://musicart.xboxlive.com/7/6e5b6500-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080')
-youcef = User.create!(first_name: "Youcef", last_name: "Haraghi", gender: "male", email:"youcef@test.com", password: "azerty")
-youcef.avatar.attach(io: file_youcef, filename: "tony_strak_y8t6qx.jpg", content_type: "image/jpg")
-
+# file_youcef = URI.open('https://musicart.xboxlive.com/7/6e5b6500-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080')
+# youcef = User.create!(first_name: "Youcef", last_name: "Haraghi", gender: "male", email:"youcef@test.com", password: "azerty")
+# youcef.avatar.attach(io: file_youcef, filename: "tony_strak_y8t6qx.jpg", content_type: "image/jpg")

@@ -75,3 +75,8 @@ end
 gem "devise"
 
 gem "simple_form"
+
+gem "cloudinary"
+gem "dotenv-rails", groups: [:development, :test]
+
+
