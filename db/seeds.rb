@@ -26,8 +26,8 @@ file_sandy = URI.open("https://res.cloudinary.com/dsu8pswsx/image/upload/v168908
 sandy = User.new(
   email: "sandy@test.com",
   password: "azerty",
-  first_name: "sandy",
-  last_name: "yukna"
+  first_name: "Sandy",
+  last_name: "Blue"
 )
 sandy.avatar.attach(io: file_sandy, filename: "FB_IMG_1591652523870_harncz.jpg", content_type: "image/jpg")
 sandy.save
