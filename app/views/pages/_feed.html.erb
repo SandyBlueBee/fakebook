@@ -4,7 +4,9 @@
   <div class="post" data-controller="posts">
     <div class="post-header">
       <div class="post-display-user">
-        <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+        <% if @user.avatar.present? %>
+          <%= cl_image_tag @user.avatar.key, class: "contact-profile" %>
+        <% end %>
         <h3><%= post.user.first_name %> <%= post.user.last_name %></h3>
       </div>
       <% if post.user == current_user %>
@@ -39,7 +41,9 @@
       <div class="post-comments" data-posts-target="commentshow">
         <% post.comments.each do |comment| %>
           <div class="post-comment">
-            <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+              <% if @user.avatar.present? %>
+                <%= cl_image_tag @user.avatar.key, class: "contact-profile" %>
+              <% end %>
             <div class="post-comment-content">
               <p><strong><%= comment.user.first_name %> <%= comment.user.last_name %></strong></p>
               <p><%= comment.content %></p>
