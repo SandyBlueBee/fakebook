@@ -13,5 +13,11 @@
  *= require_tree .
  *= require_self
  */
-@import "components/media";
-@import "navbar";
+
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+
+
+// My CSS partials
+@import "components/index";

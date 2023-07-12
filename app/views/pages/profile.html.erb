@@ -3,7 +3,6 @@
     <%= cl_image_tag @user.background_image.key, class: "profile-background-img" %>
   <% end %>
 </div>
-  <%= link_to "Edit Profile-background", edit_user_registration_path %>
 
 <div class="container container-margin">
   <div class="section align-center">
@@ -13,7 +12,7 @@
 
     <div>
       <h2>About me</h2>
-      <p>Gender: <%= @user.gender %></p>
+      <%# <p>Gender: <%= @user.gender %></p>
       <p>Email: <%= @user.email %></p>
       <%= link_to "Edit Profile", edit_user_registration_path %>
     </div>

@@ -1,29 +1,37 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="container-devise">
+  <div class="card-devise">
+    <!-- Sign up -->
+    <h2>Welcome</h2>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="form-inputs">
+        <%= f.label :first_name, required: true %>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+
+        <%= f.label :last_name, required: true %>
+        <%= f.text_field :last_name, autocomplete: "last_name" %>
+
+        <%= f.label :avatar, required: true %>
+        <%= f.file_field :avatar, autocomplete: "avatar" %>
+
+        <%= f.label :email, required: true %>
+        <%= f.email_field :email, autocomplete: "email" %>
+
+        <%= f.label :password, required: true %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+
+        <%= f.label :password_confirmation, required: true %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "Save", class:"button" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
