@@ -12,3 +12,15 @@
   </div>
   <%= render "pages/rightsidebar" %>
 </div>
+
+
+<%# <div data-controller="modal">
+  <div class="modal-container" data-modal-target="modal" data-action="click->modal#close">
+
+  <%= render partial: 'chatrooms/messages', locals: { message: @message, current_user: current_user, user: @user, chatroom: @chatroom} %>
+
+  <%# </div>
+  <button data-action="click->modal#close">Fermer</button>
+</div> %> %>
+
+<div data-controller="modal"></div>

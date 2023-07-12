@@ -55,12 +55,18 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  // align-items: center;
   flex-direction: column;
   width: 500px;
   height: auto;
   background-color: white;
 
+}
+.message {
+  display: flex;
+}
+.message--self {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 .input {
   display: flex;

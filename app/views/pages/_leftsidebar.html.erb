@@ -1,10 +1,16 @@
 <div class="section">
   <h2>Online users:</h2>
   <% @users.each do |user| %>
+    <input type="checkbox" id="modalToggle" />
+      <label for="modalToggle" id="openModal"></label>
+      <div class="modal">
+        <%= render partial: 'chatrooms/messages', locals: { message: @message, current_user: current_user, user: @user, chatroom: @chatroom} %>
+      </div>
     <%= link_to profile_path(user.id) do %>
       <div class="contact-card">
         <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
         <p><%= user.first_name %> <%= user.last_name %></p>
+        <%= link_to 'Voir la conversation', chatroom_path(user.id) %>
       </div>
     <% end %>
   <% end %>

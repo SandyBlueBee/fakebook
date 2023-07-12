@@ -1,30 +1,30 @@
 
-<div class="message">
-    <div class="message__outer">
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.first_name %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-      </div>
-      <div class="message__avatar">
-       <% if message.user && message.user.avatar.attached? %>
-        <%= image_tag message.user.avatar , class:"avatar" %>
-       <% else %>
-        <!-- Gérer le cas où l'utilisateur n'a pas d'avatar -->
-        <%= image_tag ("user-profile-default.jpg"), class:"avatar" %>
-       <% end %>
-      </div>
-      <div class="message__inner">
-          <div class="message__bubble">
-            <p><%= message.content %></p>
-          </div>
-          <div class="message__actions">
-          </div>
-          <div class="message__spacer">
-          </div>
-      </div>
-      <div class="message__status">
-      </div>
+<div class="">
+  <div class="message__outer message <%= message.user.id == current_user.id ? 'message--self' : '' %>">
+    <div id="message-<%= message.id %>">
+      <small>
+        <strong><%= message.user.first_name %></strong>
+        <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+      </small>
     </div>
+    <div class="message__avatar">
+      <% if message.user && message.user.avatar.attached? %>
+      <%= image_tag message.user.avatar , class:"avatar" %>
+      <% else %>
+      <!-- Gérer le cas où l'utilisateur n'a pas d'avatar -->
+      <%= image_tag ("user-profile-default.jpg"), class:"avatar" %>
+      <% end %>
+    </div>
+    <div class="message__inner">
+        <div class="message__bubble">
+          <p><%= message.content %></p>
+        </div>
+        <div class="message__actions">
+        </div>
+        <div class="message__spacer">
+        </div>
+    </div>
+    <div class="message__status">
+    </div>
+  </div>
 </div>
