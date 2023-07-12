@@ -78,7 +78,8 @@
 // post footer
 
 .post-buttons {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   border-top: 1px solid var(--shadow-color);
   padding: 5px;
   gap: 5px;

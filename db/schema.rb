@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_07_11_110045) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,6 +67,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_110045) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "likeable_type", null: false
+    t.bigint "likeable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "chatroom_id", null: false
@@ -78,7 +90,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_110045) do
   create_table "posts", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
-    t.integer "likes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -103,6 +114,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_110045) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"

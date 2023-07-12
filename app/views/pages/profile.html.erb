@@ -1,13 +1,21 @@
 <div class="profile-background">
-  <%= image_tag ("user-background-default.jpg"), class:"profile-background-img" %>
+  <% if @user.background_image.present? %>
+    <%= cl_image_tag @user.background_image.key, class: "profile-background-img" %>
+  <% end %>
 </div>
+  <%= link_to "Edit Profile-background", edit_user_registration_path %>
+
 <div class="container container-margin">
   <div class="section align-center">
-    <%= image_tag ("user-profile-default.jpg"), class:"profile-face" %>
+    <% if @user.avatar.present? %>
+  <%= cl_image_tag @user.avatar.key, class: "profile-face" %>
+    <% end %>
+
     <div>
       <h2>About me</h2>
       <p>Gender: <%= @user.gender %></p>
       <p>Email: <%= @user.email %></p>
+      <%= link_to "Edit Profile", edit_user_registration_path %>
     </div>
   </div>
   <div style="width: 100%">

@@ -1,9 +1,12 @@
 <% @posts.each do |post| %>
   <% @post.id = post.id %>
+  <%# <% @post = post %>
   <div class="post" data-controller="posts">
     <div class="post-header">
       <div class="post-display-user">
-        <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+        <% if @user.avatar.present? %>
+          <%= cl_image_tag @user.avatar.key, class: "contact-profile" %>
+        <% end %>
         <h3><%= post.user.first_name %> <%= post.user.last_name %></h3>
       </div>
       <% if post.user == current_user %>
@@ -15,21 +18,47 @@
     <div class="post-content">
       <p><%= post.content %></p>
     </div>
+    <% unless post.likes.empty? %>
+      <p class="comment-count"><%= post.likes.count %> like(s)</p>
+    <% end %>
     <% unless post.comments.empty? %>
       <p class="comment-count" data-action="click->posts#commentShow"><%= post.comments.count %> comment(s)</p>
     <% end %>
     <div class="post-buttons">
-      <button class="post-button">Like</button>
+      <% postliked = []  %>
+      <% current_user.likes.each do |like| %>
+        <% postliked << like if like[:likeable_type] == "Post" && like[:likeable_id] == @post.id %>
+      <% end %>
+      <% if postliked.empty? %>
+        <%= button_to 'Like', post_like_path(@post), method: :put, params: { like: { likeable_type: 'Post', likeable_id: @post.id } }, class: 'post-button' %>
+      <% else %>
+        <%= button_to 'Unlike', post_unlike_path(@post, @post.likes.find_by(user_id: current_user.id)), method: :delete, params: { like: { likeable_type: 'Post', likeable_id: @post.id } }, class: 'post-button' %>
+      <% end %>
+
       <button class="post-button" data-action="click->posts#commentNew">Comment</button>
     </div>
     <% unless post.comments.empty? %>
       <div class="post-comments" data-posts-target="commentshow">
         <% post.comments.each do |comment| %>
           <div class="post-comment">
-            <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+              <% if @user.avatar.present? %>
+                <%= cl_image_tag @user.avatar.key, class: "contact-profile" %>
+              <% end %>
             <div class="post-comment-content">
               <p><strong><%= comment.user.first_name %> <%= comment.user.last_name %></strong></p>
               <p><%= comment.content %></p>
+              <% unless comment.likes.empty? %>
+                <p class="comment-count"><%= comment.likes.count %> like(s)</p>
+              <% end %>
+              <% commentliked = []  %>
+              <% current_user.likes.each do |like| %>
+                <% commentliked << like if like[:likeable_type] == "Comment" && like[:likeable_id] == comment.id %>
+              <% end %>
+              <% if commentliked.empty? %>
+                <%= button_to 'Like', comment_like_path(comment), method: :put, params: { like: { likeable_type: 'Comment', likeable_id: comment.id } } %>
+              <% else %>
+                <%= button_to 'Unlike', comment_unlike_path(comment, comment.likes.find_by(user_id: current_user.id)), method: :delete, params: { like: { likeable_type: 'Comment', likeable_id: comment.id } } %>
+              <% end %>
             </div>
           </div>
         <% end %>

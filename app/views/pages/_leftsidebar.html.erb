@@ -8,7 +8,9 @@
       </div>
     <%= link_to profile_path(user.id) do %>
       <div class="contact-card">
-        <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+        <% if user.avatar.present? %>
+          <%= cl_image_tag user.avatar.key, class: "contact-profile" %>
+        <% end %>
         <p><%= user.first_name %> <%= user.last_name %></p>
         <%= link_to 'Voir la conversation', chatroom_path(user.id) %>
       </div>

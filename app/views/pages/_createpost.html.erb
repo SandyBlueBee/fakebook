@@ -1,5 +1,7 @@
 <div class="post post-new">
-  <%= image_tag ("user-profile-default.jpg"), class: "contact-profile" %>
+   <% if @user.avatar.present? %>
+  <%= cl_image_tag @user.avatar.key, class: "contact-profile" %>
+    <% end %>
   <%= form_with(model: [@post], class: "form-post-new") do |f| %>
   <%= f.text_area :content, placeholder: "What are you thinking about today?" %>
   <%= f.submit class: "button" %>
