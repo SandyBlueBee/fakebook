@@ -1,4 +1,4 @@
-.section {
+.section-right {
   width: 300px;
   max-width: 300px;
   background-color: var(--section-color);
@@ -7,4 +7,16 @@
   flex-direction: column;
   gap: 10px;
   padding: 30px;
+}
+
+.section-left {
+  width: 200px;
+  max-width: 200px;
+  background-color: var(--section-color);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
+  background: linear-gradient(to bottom, #95C6C6 30%, #569F9F);;
 }

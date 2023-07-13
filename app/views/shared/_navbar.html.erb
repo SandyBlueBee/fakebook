@@ -4,7 +4,7 @@
   <% end %>
   <div style="display:flex; gap: 20px">
     <% if user_signed_in? %>
-      <h4><%= link_to "Home", root_path, class: "nav-link" %></h4>
+      <%# <h4><%= link_to "Home", root_path, class: "nav-link" %></h4> %>
       <h4><%= link_to "My profile", profile_path, class: "nav-link" %></h4>
       <h4><%= link_to "Log out",  destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} %></h4>
     <% else %>

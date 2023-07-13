@@ -1,0 +1,66 @@
+.container-devise {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+.card-devise {
+  width: 400px;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+}
+
+
+.field {
+  margin-bottom: 20px;
+}
+
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  text-align: left;
+}
+
+.remember-me-label {
+  width: -webkit-fill-available;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.actions input[type="submit"],
+.actions input[type="checkbox"] {
+  padding: 10px 20px;
+  background-color: #569F9F;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.actions input[type="submit"]:hover,
+.actions input[type="checkbox"]:hover {
+  background-color: #95C6C6;
+}
+
+.actions a {
+  color: #777;
+  text-decoration: none;
+}
+
+.actions a:hover {
+  text-decoration: underline;
+}
