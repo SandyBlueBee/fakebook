@@ -1,8 +1,6 @@
 <div class="section-left">
   <h3>Online users:</h3>
   <% @users.each do |user| %>
-    <label for="modalToggle" id="openModal"></label>
-
     <%= link_to profile_path(user.id) do %>
       <div class="contact-card">
         <% if user.avatar.present? %>

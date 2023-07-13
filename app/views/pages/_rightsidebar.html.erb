@@ -1,5 +1,4 @@
-
-  
+<div class="section-right">
   <% @users.each do |user| %>
     <div class="contact-card" data-user-id="<%= user.id %>" data-action="click->modal#open">
       <% if user.avatar.present? %>
@@ -8,3 +7,4 @@
       <p><%= user.first_name %> <%= user.last_name %></p>
     </div>
   <% end %>
+</div>
