@@ -32,6 +32,25 @@ sandy = User.new(
 sandy.avatar.attach(io: file_sandy, filename: "FB_IMG_1591652523870_harncz.jpg", content_type: "image/jpg")
 sandy.save
 
+file_elise = URI.open("https://res.cloudinary.com/dsu8pswsx/image/upload/v1689088764/development/Fakebook/FB_IMG_1591652523870_harncz.jpg")
+elise = User.new(
+  email: "elise@test.com",
+  password: "azerty",
+  first_name: "elise",
+  last_name: "Blue"
+)
+elise.avatar.attach(io: file_elise, filename: "FB_IMG_1591652523870_harncz.jpg", content_type: "image/jpg")
+elise.save
+
+file_youcef = URI.open("https://res.cloudinary.com/dsu8pswsx/image/upload/v1689088770/development/Fakebook/Git_wmkenh.jpg")
+youcef = User.new(
+  email: "youcef@test.com",
+  password: "azerty",
+  first_name: "youcef",
+  last_name: "Morillo"
+)
+youcef.avatar.attach(io: file_youcef, filename: "Git_wmkenh.jpg", content_type: "image/jpg")
+youcef.save
 puts "Creating posts..."
 Post.destroy_all
 

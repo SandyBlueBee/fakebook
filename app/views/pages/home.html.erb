@@ -1,4 +1,4 @@
-<div class="page-layout">
+<div class="page-layout" data-controller="modal">
   <%= render "pages/leftsidebar" %>
   <div class="page-content-scrollable">
     <div class="home-feed">
@@ -11,16 +11,6 @@
     </div>
   </div>
   <%= render "pages/rightsidebar" %>
+  <div class="modal" data-modal-target="chatrooms"></div>
+
 </div>
-
-
-<%# <div data-controller="modal">
-  <div class="modal-container" data-modal-target="modal" data-action="click->modal#close">
-
-  <%= render partial: 'chatrooms/messages', locals: { message: @message, current_user: current_user, user: @user, chatroom: @chatroom} %>
-
-  <%# </div>
-  <button data-action="click->modal#close">Fermer</button>
-</div> %> %>
-
-<div data-controller="modal"></div>

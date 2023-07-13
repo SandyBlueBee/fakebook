@@ -1,10 +1,20 @@
 class ChatroomsController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: [:create]
 
-  def show
-    @chatroom = find_or_create_chatroom(params[:id])
+  def create
+    @chatrooms = current_user.chatrooms
+    @chatroom = @chatrooms.joins(:users).where(users: { id: params[:user_id] }).first
+
+    unless @chatroom.present?
+      @chatroom = Chatroom.create
+      @chatroom.users << current_user
+      @chatroom.users << User.find(params[:user_id])
+    end
+
     @messages = @chatroom.messages.order(created_at: :asc)
-    @message = Message.new
+
+    render json: { partial: render_to_string(partial: "chatrooms/messages", locals: { chatroom: @chatroom }, formats: :html)}, status: :created
   end
 
   private
@@ -22,5 +32,6 @@ class ChatroomsController < ApplicationController
       chatroom.users << User.find(user_id)
       chatroom
     end
+    # raise
   end
 end
