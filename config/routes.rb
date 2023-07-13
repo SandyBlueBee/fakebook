@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :create] do
     resources :comments, only: [:create, :destroy]
   end
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: :create do
     resources :messages, only: [:create]
   end
 end

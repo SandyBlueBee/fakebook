@@ -1,4 +1,10 @@
-<div class="section-right">
-  <h6>Your current conversations : </h6>
-  <p>You have no current conversations.</p>
-</div>
+
+  
+  <% @users.each do |user| %>
+    <div class="contact-card" data-user-id="<%= user.id %>" data-action="click->modal#open">
+      <% if user.avatar.present? %>
+        <%= cl_image_tag user.avatar.key, class: "contact-profile" %>
+      <% end %>
+      <p><%= user.first_name %> <%= user.last_name %></p>
+    </div>
+  <% end %>
