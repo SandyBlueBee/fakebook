@@ -1,4 +1,4 @@
-<div class="section">
+
   
   <% @users.each do |user| %>
     <div class="contact-card" data-user-id="<%= user.id %>" data-action="click->modal#open">
@@ -8,4 +8,3 @@
       <p><%= user.first_name %> <%= user.last_name %></p>
     </div>
   <% end %>
-</div>
