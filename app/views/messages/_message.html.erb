@@ -1,30 +1,23 @@
 
-<div class="">
-  <div class="message__outer message <%= message.user.id == current_user.id ? 'message--self' : '' %>">
-    <div id="message-<%= message.id %>">
-      <small>
-        <strong><%= message.user.first_name %></strong>
-        <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-      </small>
-    </div>
-    <div class="message__avatar">
+<%# <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %><%#</i> %>
+<div class="message <%= message.user.id == current_user.id ? 'message-current-user' : '' %>" id="message-<%= message.id %>">
+  <% unless message.user === current_user %>
+    <div class="chatroom-avatar">
       <% if message.user && message.user.avatar.attached? %>
-      <%= image_tag message.user.avatar , class:"avatar" %>
+      <%= image_tag message.user.avatar , class:"avatar-img" %>
       <% else %>
       <!-- Gérer le cas où l'utilisateur n'a pas d'avatar -->
-      <%= image_tag ("user-profile-default.jpg"), class:"avatar" %>
+      <%= image_tag ("user-profile-default.jpg"), class:"avatar-img" %>
       <% end %>
     </div>
-    <div class="message__inner">
-        <div class="message__bubble">
-          <p><%= message.content %></p>
-        </div>
-        <div class="message__actions">
-        </div>
-        <div class="message__spacer">
-        </div>
-    </div>
-    <div class="message__status">
-    </div>
+  <% end %>
+  <div class="message-content <%= message.user.id == current_user.id ? 'message-content-current-user' : '' %>" >
+    <p ><%= message.content %></p>
   </div>
+  <%# <div class="message__actions">
+    <p>actions</p>
+  </div>
+  <div class="message__status">
+    <p>status</p>
+  </div> %>
 </div>
