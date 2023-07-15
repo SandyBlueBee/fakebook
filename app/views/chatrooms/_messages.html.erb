@@ -2,22 +2,36 @@
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
-  <h1><%= @chatroom.name %> <%= @chatroom.id %></h1>
-
-  <div class="messages" data-chatroom-subscription-target="messages">
-    <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+  <div class="chatroom-header">
+    <% if @chatroom.name %>
+      <h3><%= @chatroom.name %></h3>
+    <% else %>
+      <div class="chatroom-avatar">
+        <% if chatroom.users.first.avatar.attached? %>
+        <%= image_tag chatroom.users.first.avatar , class:"avatar-img" %>
+        <% else %>
+        <!-- If user doesn't have a profile picture -->
+        <%= image_tag ("user-profile-default.jpg"), class:"avatar-img" %>
+        <% end %>
+    </div>
+      <h3><%= chatroom.users.first.first_name %></h3>
     <% end %>
   </div>
-
-<%= simple_form_for [@chatroom, Message.new],
-  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "input" } do |f|
-%>
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message #{@chatroom.name}",
-    wrapper_html: {class: "message__inner"}
-  %>
-  <%= f.submit "Send", class: "button" %>
-<% end %>
+  <div class="chatroom-content">
+    <div class="chatroom-messages" data-chatroom-subscription-target="messages">
+      <% @chatroom.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
+    <%= simple_form_for [@chatroom, Message.new],
+      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "chatroom-footer" } do |f|
+    %>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message #{@chatroom.name}",
+        wrapper_html: {class: "message-input"}
+      %>
+      <%= f.submit "Send", class: "button" %>
+    <% end %>
+  </div>
 </div>
