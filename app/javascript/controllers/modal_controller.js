@@ -14,7 +14,7 @@ export default class extends Controller {
     url.pathname = "/chatrooms"
     url.searchParams.set("user_id", userId);
     // "https://localhost:3000/chatrooms?user_id=1"
-    console.log(url);
+    // console.log(url);
     fetch(url, {
       method: "POST",
       headers: {
