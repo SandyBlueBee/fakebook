@@ -2,7 +2,7 @@
   <% if @user.avatar.present? %>
     <%= cl_image_tag @user.avatar.key, class: "contact-profile" %>
   <% end %>
-  <%= form_with(model: [@post, @comment], class: "form-post-comment-new") do |f| %>
+  <%= form_with(model: [@post, @comment], class: "form-inline") do |f| %>
   <%= f.text_area :content, placeholder: "Comment this post here..." %>
   <%= f.submit class: "button" %>
 <% end %>

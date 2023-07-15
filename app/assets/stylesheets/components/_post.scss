@@ -142,12 +142,6 @@
   padding: 5px;
 }
 
-.form-post-comment-new {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-}
-
 textarea {
   background-color: var(--background-color);
   border: none;
@@ -164,12 +158,6 @@ textarea {
   align-items: center;
   gap: 10px;
   padding: 20px;
-}
-
-.form-post-new {
-  display: flex;
-  gap: 10px;
-  width: 100%;
 }
 
 textarea {

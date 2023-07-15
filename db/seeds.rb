@@ -36,7 +36,7 @@ elise = User.new(
   email: "elise@test.com",
   password: "azerty",
   first_name: "elise",
-  last_name: "Blue"
+  last_name: "Rochaix"
 )
 elise.avatar.attach(io: file_elise, filename: "FB_IMG_1591652523870_harncz.jpg", content_type: "image/jpg")
 elise.save
@@ -46,15 +46,16 @@ youcef = User.new(
   email: "youcef@test.com",
   password: "azerty",
   first_name: "youcef",
-  last_name: "Morillo"
+  last_name: "Haraghi"
 )
 youcef.avatar.attach(io: file_youcef, filename: "Git_wmkenh.jpg", content_type: "image/jpg")
 youcef.save
 puts "Creating posts..."
 
 Post.create!(content: "Hi SANNDDYYYYY", user_id: yoann.id)
-Post.create!(content: "Hey guys! I'm new on Fakebook. Anybody have recommendations for new features?", user_id: sandy.id)
 Post.create!(content: "Yoann, stop messing with me! :)", user_id: sandy.id)
+Post.create!(content: "Let's go hiking guys!", user_id: youcef.id)
+Post.create!(content: "Hey guys! I'm new on Fakebook. Anybody have recommendations for new features?", user_id: elise.id)
 
 
 

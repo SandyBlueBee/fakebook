@@ -4,10 +4,10 @@
   <div class="post" data-controller="posts">
     <div class="post-header">
       <div class="post-display-user">
-        <% if @user.avatar.present? %>
-          <%= cl_image_tag @user.avatar.key, class: "contact-profile" %>
+        <% if post.user.avatar.present? %>
+          <%= cl_image_tag post.user.avatar.key, class: "contact-profile" %>
         <% end %>
-        <h3><%= post.user.first_name %> <%= post.user.last_name %></h3>
+        <h3><%= link_to "#{post.user.first_name} #{post.user.last_name}", profile_path(post.user) %></h3>
       </div>
       <% if post.user == current_user %>
         <div class="post-options-hover">
@@ -41,8 +41,8 @@
       <div class="post-comments" data-posts-target="commentshow">
         <% post.comments.each do |comment| %>
           <div class="post-comment">
-              <% if @user.avatar.present? %>
-                <%= cl_image_tag @user.avatar.key, class: "contact-profile" %>
+              <% if comment.user.avatar.present? %>
+                <%= cl_image_tag comment.user.avatar.key, class: "contact-profile" %>
               <% end %>
             <div class="post-comment-content">
               <p><strong><%= comment.user.first_name %> <%= comment.user.last_name %></strong></p>
