@@ -10,6 +10,8 @@ class PagesController < ApplicationController
     @like = Like.new
     @like.user = current_user
     @comment.post = @post
+    @chatrooms = current_user.chatrooms
+    @chatroom = @chatrooms.joins(:users).where(users: { id: params[:user_id] }).first
   end
 
   def profile

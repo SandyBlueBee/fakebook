@@ -1,8 +1,6 @@
-<div class="chatroom"
-  data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
->
-  <div class="chatroom-header">
+
+<div class="chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-modal-target="modal" data-action="click->modal#close">
+  <div class="chatroom-header" >
     <% if @chatroom.name %>
       <h3><%= @chatroom.name %></h3>
     <% else %>

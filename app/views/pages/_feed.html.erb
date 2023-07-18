@@ -35,11 +35,10 @@
       <% else %>
         <%= button_to 'Unlike', post_unlike_path(@post, @post.likes.find_by(user_id: current_user.id)), method: :delete, params: { like: { likeable_type: 'Post', likeable_id: @post.id } }, class: 'post-button' %>
       <% end %>
-      <button class="post-button" data-action="click->posts#commentNew visible">Comment</button>
+      <button class="post-button" data-action="click->posts#commentNew">Comment</button>
     </div>
     <div class="post-comments" data-posts-target="commentshow">
       <% unless post.comments.empty? %>
-
         <% post.comments.each do |comment| %>
           <div class="post-comment">
               <% if comment.user.avatar.present? %>
