@@ -9,13 +9,8 @@ export default class extends Controller {
 
   commentShow() {
     // console.log("show comments")
-    if (this.commentshowTarget.style.display === "none") {
-      this.commentshowTarget.style.display = "flex";
-      this.commentformTarget.style.display = "flex";
-    } else {
-      this.commentshowTarget.style.display = "none";
-      this.commentformTarget.style.display = "none";
-    }
+    this.commentshowTarget.classList.toggle("visible");
+    this.commentformTarget.classList.toggle("visible");
   }
 
   commentNew() {

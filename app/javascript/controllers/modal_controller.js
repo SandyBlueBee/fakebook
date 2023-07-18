@@ -2,7 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="modal"
 export default class extends Controller {
-  static targets = ["chatrooms"]
+  static targets = ["chatrooms", "modal"]
+  static classes = ["hidden"];
+
   connect() {
     console.log("Modal is in the House!")
   }
@@ -24,7 +26,14 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then(data => {
+        console.log(data)
         this.chatroomsTarget.insertAdjacentHTML("beforeend", data.partial)
+        this.modalTarget.classList.remove(this.hiddenClass);
+        console.log(this.modalTarget)
       })
+  }
+  close() {
+    console.log("Close modal");
+    this.modalTarget.remove();
   }
 }
