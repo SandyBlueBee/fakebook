@@ -1,13 +1,12 @@
 <% @posts.each do |post| %>
   <% @post.id = post.id %>
-  <%# <% @post = post %>
   <div class="post" data-controller="posts">
     <div class="post-header">
       <div class="post-display-user">
-        <% if @user.avatar.present? %>
-          <%= cl_image_tag @user.avatar.key, class: "contact-profile" %>
+        <% if post.user.avatar.present? %>
+          <%= cl_image_tag post.user.avatar.key, class: "contact-profile" %>
         <% end %>
-        <h3><%= post.user.first_name %> <%= post.user.last_name %></h3>
+        <h3><%= link_to "#{post.user.first_name} #{post.user.last_name}", profile_path(post.user) %></h3>
       </div>
       <% if post.user == current_user %>
         <div class="post-options-hover">
@@ -18,12 +17,14 @@
     <div class="post-content">
       <p><%= post.content %></p>
     </div>
-    <% unless post.likes.empty? %>
-      <p class="comment-count"><%= post.likes.count %> like(s)</p>
-    <% end %>
-    <% unless post.comments.empty? %>
-      <p class="comment-count" data-action="click->posts#commentShow"><%= post.comments.count %> comment(s)</p>
-    <% end %>
+    <div style="display: flex; justify-content: space-between">
+      <% unless post.likes.empty? %>
+        <p class="comment-count"><%= post.likes.count %> like(s)</p>
+      <% end %>
+      <% unless post.comments.empty? %>
+        <p class="comment-count" data-action="click->posts#commentShow"><%= post.comments.count %> comment(s)</p>
+      <% end %>
+    </div>
     <div class="post-buttons">
       <% postliked = []  %>
       <% current_user.likes.each do |like| %>
@@ -34,15 +35,15 @@
       <% else %>
         <%= button_to 'Unlike', post_unlike_path(@post, @post.likes.find_by(user_id: current_user.id)), method: :delete, params: { like: { likeable_type: 'Post', likeable_id: @post.id } }, class: 'post-button' %>
       <% end %>
-
       <button class="post-button" data-action="click->posts#commentNew visible">Comment</button>
     </div>
-    <% unless post.comments.empty? %>
-      <div class="post-comments" data-posts-target="commentshow">
+    <div class="post-comments" data-posts-target="commentshow">
+      <% unless post.comments.empty? %>
+
         <% post.comments.each do |comment| %>
           <div class="post-comment">
-              <% if @user.avatar.present? %>
-                <%= cl_image_tag @user.avatar.key, class: "contact-profile" %>
+              <% if comment.user.avatar.present? %>
+                <%= cl_image_tag comment.user.avatar.key, class: "contact-profile" %>
               <% end %>
             <div class="post-comment-content">
               <p><strong><%= comment.user.first_name %> <%= comment.user.last_name %></strong></p>
@@ -62,8 +63,9 @@
             </div>
           </div>
         <% end %>
-      </div>
-    <% end %>
+
+      <% end %>
+    </div>
     <%= render "createpostcomment" %>
   </div>
 <% end %>
