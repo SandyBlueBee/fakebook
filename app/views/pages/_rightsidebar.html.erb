@@ -3,7 +3,7 @@
   <p>Feature coming soon</p>
   <h3>Contacts:</h3>
   <% @users.each do |user| %>
-    <div class="contact-card" data-user-id="<%= user.id %>" data-action="click->modal#open">
+    <div class="contact-card" data-user-id="<%= user.id %>" data-action="click->modal#toggle">
       <% if user.avatar.present? %>
         <%= cl_image_tag user.avatar.key, class: "contact-profile" %>
       <% end %>
