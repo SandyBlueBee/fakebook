@@ -17,6 +17,9 @@
         <%= f.label :avatar, required: true %>
         <%= f.file_field :avatar, autocomplete: "avatar" %>
 
+        <%= f.label :bio, required: false %>
+        <%= f.text_field :bio, autocomplete: "Write a small bio about yourself" %>
+
         <%= f.label :email, required: true %>
         <%= f.email_field :email, autocomplete: "email" %>
 

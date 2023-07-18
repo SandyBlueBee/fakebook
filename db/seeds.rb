@@ -16,7 +16,8 @@ yoann = User.new(
   email: "yoann@test.com",
   password: "azerty",
   first_name: "Yoann",
-  last_name: "Morillo"
+  last_name: "Morillo",
+  bio: "I'm so BOF :D"
 )
 yoann.avatar.attach(io: file_yoann, filename: "Git_wmkenh.jpg", content_type: "image/jpg")
 yoann.save
@@ -26,7 +27,8 @@ sandy = User.new(
   email: "sandy@test.com",
   password: "azerty",
   first_name: "Sandy",
-  last_name: "Blue"
+  last_name: "Blue",
+  bio: "Look at me, I'm Sandra Dee, prancing with virginity!"
 )
 sandy.avatar.attach(io: file_sandy, filename: "FB_IMG_1591652523870_harncz.jpg", content_type: "image/jpg")
 sandy.save
@@ -36,7 +38,8 @@ elise = User.new(
   email: "elise@test.com",
   password: "azerty",
   first_name: "elise",
-  last_name: "Rochaix"
+  last_name: "Rochaix",
+  bio: "Hey, it's mom."
 )
 elise.avatar.attach(io: file_elise, filename: "FB_IMG_1591652523870_harncz.jpg", content_type: "image/jpg")
 elise.save
@@ -46,7 +49,8 @@ youcef = User.new(
   email: "youcef@test.com",
   password: "azerty",
   first_name: "youcef",
-  last_name: "Haraghi"
+  last_name: "Haraghi",
+  bio: "Hey Buddy!"
 )
 youcef.avatar.attach(io: file_youcef, filename: "Git_wmkenh.jpg", content_type: "image/jpg")
 youcef.save

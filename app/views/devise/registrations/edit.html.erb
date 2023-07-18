@@ -35,6 +35,11 @@
         <%= f.text_field :last_name, value: resource.last_name, autocomplete: "last_name" %>
       </div>
 
+      <div class="field">
+        <%= f.label :bio %><br />
+        <%= f.text_field :bio, value: resource.bio, autocomplete: "Write a small bio about yourself" %>
+      </div>
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
