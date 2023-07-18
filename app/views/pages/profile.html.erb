@@ -1,20 +1,24 @@
 <div class="profile-background">
   <% if @user.background_image.present? %>
     <%= cl_image_tag @user.background_image.key, class: "profile-background-img" %>
+  <% else %>
+    <%= image_tag ("user-background-default.jpg"), class: "profile-background-img" %>
   <% end %>
 </div>
 
 <div class="container container-margin">
   <div class="section align-center">
     <% if @user.avatar.present? %>
-  <%= cl_image_tag @user.avatar.key, class: "profile-face" %>
+      <%= cl_image_tag @user.avatar.key, class: "profile-face" %>
     <% end %>
 
     <div>
       <h2>About me</h2>
       <%# <p>Gender: <%= @user.gender %></p>
-      <p>Email: <%= @user.email %></p>
-      <%= link_to "Edit Profile", edit_user_registration_path %>
+      <p style="margin-bottom: 20px">Email: <%= @user.email %></p>
+      <% if @user === current_user %>
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "button" %>
+      <% end %>
     </div>
   </div>
   <div style="width: 100%">
@@ -27,4 +31,3 @@
     </div>
   </div>
 </div>
-<%= console %>

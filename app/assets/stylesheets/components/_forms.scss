@@ -1,0 +1,9 @@
+.form-inline {
+  // size and shape
+  width: 100%;
+  box-sizing: border-box;
+  // position of children
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

@@ -14,7 +14,7 @@
 
 .chatroom {
   //size & shape
-  width: 350px;
+  width: 300px;
   height: 450px;
   border-radius: 10px 10px 0px 0px;
   overflow: hidden;
@@ -33,7 +33,7 @@
   padding: 10px;
   align-items: center;
   //colors
-  background-color: var(--secondary-color);
+  background-color: var(--background-color);
   box-shadow: 1px 0px 5px var(--shadow-color);
 }
 
@@ -107,10 +107,6 @@
 .chatroom-footer {
   //size & shape
   padding: 0px 5px;
-  // position of children
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 .message-input {

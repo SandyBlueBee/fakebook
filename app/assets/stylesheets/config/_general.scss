@@ -13,6 +13,7 @@ body {
 
 .page-layout {
   display: flex;
+  width: 100%;
 }
 
 .page-content-scrollable{
@@ -21,8 +22,9 @@ body {
   overflow: scroll;
 }
 
-a{
+a {
   text-decoration: none;
+  color: var(--main-color);
 }
 
 .align-center {

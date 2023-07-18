@@ -14,9 +14,6 @@ export default class extends Controller {
   }
 
   commentNew() {
-    console.log(this.commentformTarget)
-      this.commentshowTarget.classList.toggle("visible");
-      this.commentformTarget.classList.toggle("visible");
-
+    this.commentformTarget.classList.toggle("visible");
   }
 }
