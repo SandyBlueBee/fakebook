@@ -10,14 +10,14 @@
         <%= f.label :avatar, "Avatar" %><br />
         <%= f.file_field :avatar,
                           required: true,
-                          input_html: { autocomplete: "avatar", multiple: true } %>
+                          input_html: { autocomplete: "avatar", multiple: false } %>
       </div>
 
       <div class="field">
         <%= f.label :background_image, "Background Image" %><br />
         <%= f.file_field :background_image,
                           required: true,
-                          input_html: { autocomplete: "background-image", multiple: true } %>
+                          input_html: { autocomplete: "background-image", multiple: false } %>
       </div>
 
       <div class="field">

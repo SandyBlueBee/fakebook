@@ -15,7 +15,10 @@
       <% end %>
     </div>
     <div class="post-content">
-      <p><%= post.content %></p>
+      <p class="post-content-text"><%= post.content %></p>
+      <% if post.post_image.attached? %>
+          <%= cl_image_tag post.post_image.key, class: "post-image" %>
+        <% end %>
     </div>
     <div style="display: flex; justify-content: space-between">
       <% unless post.likes.empty? %>
