@@ -28,13 +28,16 @@
       <% end %>
     </div>
     <%= simple_form_for [@chatroom, Message.new],
-      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "chatroom-footer form-inline" } do |f|
+      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm", controller:"emoji" }, class: "chatroom-footer form-inline" } do |f|
     %>
-      <%= f.input :content,
+      <%= f.input_field :content,
         label: false,
         placeholder: "Message #{@chatroom.name}",
-        wrapper_html: {class: "message-input"}
+        wrapper_html: {class: "message-input"},
+        data: { emoji_target: "input", action: "emoji-pick->emoji#add" }
       %>
+      <button type="button" data-action="click->emoji#togglePicker">Emoji</button>
+    <unicode-emoji-picker filters-position="bottom" data-emoji-target="emoji" data-action="emoji-pick->emoji#add" class="hidden"></unicode-emoji-picker>
       <%= f.submit "Send", class: "button" %>
     <% end %>
   </div>
