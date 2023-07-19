@@ -7,19 +7,18 @@
 </div>
 
 <div class="container container-margin">
-  <div class="section align-center">
+  <div class="section align-center profile-about-me">
     <% if @user.avatar.present? %>
       <%= cl_image_tag @user.avatar.key, class: "profile-face" %>
     <% end %>
-
+    <h2>About me</h2>
     <div>
-      <h2>About me</h2>
-      <%# <p>Gender: <%= @user.gender %></p>
-      <p style="margin-bottom: 20px">Email: <%= @user.email %></p>
-      <% if @user === current_user %>
-        <%= link_to "Edit Profile", edit_user_registration_path, class: "button" %>
-      <% end %>
+      <%# <p>Gender: <%= @user.gender %><%#</p> %>
+      <p class="profile-bio"><%= @user.bio %></p>
     </div>
+    <% if @user === current_user %>
+      <%= link_to "Edit Profile", edit_user_registration_path, class: "button" %>
+    <% end %>
   </div>
   <div style="width: 100%">
     <h1><%= @user.first_name %> <%= @user.last_name %></h1>

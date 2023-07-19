@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="modal"
 export default class extends Controller {
+  static values = { chatroomId: Number }
   static targets = ["chatrooms", "modal"]
   // static classes = ["hidden"];
 

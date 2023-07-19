@@ -1,22 +1,24 @@
-
 <div class="chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-modal-target="modal"
   data-user-id="<%= user.id %>" >
   <div class="chatroom-header" data-action="click->modal#toggle" data-user-id="<%= user.id %>">
-    <% if @chatroom.name %>
-      <h3><%= @chatroom.name %></h3>
-    <% else %>
-      <div class="chatroom-avatar">
-        <% if chatroom.users.first.avatar.attached? %>
-        <%= image_tag chatroom.users.first.avatar , class:"avatar-img" %>
-        <% else %>
-        <!-- If user doesn't have a profile picture -->
-        <%= image_tag ("user-profile-default.jpg"), class:"avatar-img" %>
-        <% end %>
-    </div>
-      <h3><%= chatroom.users.first.first_name %></h3>
+    <div style="display: flex; gap: 5px">
+      <% if @chatroom.name %>
+        <h3><%= @chatroom.name %></h3>
+      <% else %>
+        <div class="chatroom-avatar">
+          <% if chatroom.users.first.avatar.attached? %>
+          <%= image_tag chatroom.users.first.avatar , class:"avatar-img" %>
+          <% else %>
+          <!-- If user doesn't have a profile picture -->
+          <%= image_tag ("user-profile-default.jpg"), class:"avatar-img" %>
+          <% end %>
+        </div>
+        <h3><%= chatroom.users.first.first_name %></h3>
+      </div>
+      <p data-action="click->modal#toggle" data-user-id="<%= user.id %>X</p>
     <% end %>
   </div>
   <div class="chatroom-content">
