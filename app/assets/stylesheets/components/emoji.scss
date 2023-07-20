@@ -4,6 +4,7 @@ unicode-emoji-picker {
   font-size: 11px;
   position: absolute;
   bottom: 50px;
+  right: 0;
   --fill-color: var(--section-color);
   --text-color: #fffffc;
   --box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.35);
@@ -19,4 +20,13 @@ unicode-emoji-picker {
   --variations-backdrop-fill-color: rgba(57, 57, 55, 0.8);
   --emoji-variation-marker-border-color: #50504a;
   --emoji-variation-marker-border-color-hover: #76766f;
+}
+
+i {
+  font-size: 24px;
+  color: yellowgreen;
+}
+button {
+  background: none;
+  border: none;
 }
