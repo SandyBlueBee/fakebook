@@ -37,7 +37,7 @@
         wrapper_html: {class: "message-input"},
         data: { emoji_target: "input", action: "emoji-pick->emoji#add" }
       %>
-      <button type="button" data-action="click->emoji#togglePicker">Emoji</button>
+      <button type="button" data-action="click->emoji#togglePicker"><i class="fa-solid fa-face-laugh-beam"></i></button>
        <unicode-emoji-picker  data-emoji-target="emoji" data-action="emoji-pick->emoji#add" class="hidden"></unicode-emoji-picker>
       <%= f.submit "Send", class: "button" %>
     <% end %>
