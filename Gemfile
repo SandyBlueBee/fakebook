@@ -80,3 +80,5 @@ gem "cloudinary"
 gem "dotenv-rails", groups: [:development, :test]
 
 
+
+gem "noticed", "~> 1.6"

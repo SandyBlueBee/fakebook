@@ -8,6 +8,8 @@
         <%= cl_image_tag user.avatar.key, class: "contact-profile" %>
       <% end %>
       <p><%= user.first_name %> <%= user.last_name %></p>
+      <p class="<%= current_user.notifications ? 'notification' : '' %>">notif</p>
     </div>
   <% end %>
 </div>
+<%= console %>

@@ -1,0 +1,11 @@
+<h1>Notifications#index</h1>
+<p>Find me in app/views/notifications/index.html.erb</p>
+<ul>
+<% @notifications.each do |notification| %>
+  <% instance = notification.to_notification %>
+  <li>
+    <p>Sent at: <%= notification&.created_at.to_s %></p>
+    <p>Message: <%= instance.message %></p>
+  </li>
+<% end %>
+</ul>
