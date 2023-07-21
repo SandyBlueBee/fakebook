@@ -106,11 +106,11 @@ GEM
       railties (>= 3.2)
     erubi (1.12.0)
     ffi (1.15.5)
-    font-awesome-sass (6.4.0)
-      sassc (~> 2.0)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    font-awesome-sass (6.4.0)
+      sassc (~> 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     http (5.1.1)
