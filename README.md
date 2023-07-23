@@ -12,6 +12,7 @@ Project initialializer
 * Front-end: pages design (home, profile)
 * Front-end: components design (posts, comments, chatrooms)
 * Back-end: users, posts, comments
+* Back-end: tests conception
 
 ### [Yoann Morillo](https://github.com/yoann69)
 Digital media manager

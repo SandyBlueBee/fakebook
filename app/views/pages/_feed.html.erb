@@ -17,8 +17,8 @@
     <div class="post-content">
       <p class="post-content-text"><%= post.content %></p>
       <% if post.post_image.attached? %>
-          <%= cl_image_tag post.post_image.key, class: "post-image" %>
-        <% end %>
+        <%= cl_image_tag post.post_image.key, class: "post-image" %>
+      <% end %>
     </div>
     <div style="display: flex; justify-content: space-between">
       <% unless post.likes.empty? %>
@@ -50,6 +50,9 @@
             <div class="post-comment-content">
               <p><strong><%= comment.user.first_name %> <%= comment.user.last_name %></strong></p>
               <p><%= comment.content %></p>
+              <% if comment.comment_image.attached? %>
+                <%= cl_image_tag comment.comment_image.key, class: "post-image" %>
+              <% end %>
               <% unless comment.likes.empty? %>
                 <p class="comment-count"><%= comment.likes.count %> like(s)</p>
               <% end %>
