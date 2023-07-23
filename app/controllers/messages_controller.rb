@@ -22,7 +22,8 @@ class MessagesController < ApplicationController
   private
 
   def notify_recipient
-    MessageNotification.with(message: "Un nouveau post a été créé !").deliver(current_user)
+    @recipient = @chatroom.users.reject { |user| user == current_user }
+    MessageNotification.with(message: "Un nouveau post a été créé !").deliver(@recipient)
   end
 
   def message_params
