@@ -76,6 +76,11 @@ end
 gem "devise"
 
 gem "simple_form"
-
+gem "pry-byebug"
 gem "cloudinary"
 gem "dotenv-rails", groups: [:development, :test]
+
+# Run against this stable release
+group :test do
+  gem 'rspec-rails'
+end
