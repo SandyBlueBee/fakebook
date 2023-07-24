@@ -13,6 +13,9 @@
   <% end %>
   <div class="message-content <%= message.user.id == current_user.id ? 'message-content-current-user' : '' %>" >
     <p ><%= message.content %></p>
+    <% if message.message_image.attached? %>
+      <%= cl_image_tag message.message_image.key, class: "post-image"  %>
+    <% end %>
   </div>
   <%# <div class="message__actions">
     <p>actions</p>

@@ -1,7 +1,7 @@
 unicode-emoji-picker {
   // width: 40%;
   // height: 40%;
-  font-size: 11px;
+  font-size: 14px;
   position: absolute;
   bottom: 50px;
   right: 0;
@@ -24,9 +24,17 @@ unicode-emoji-picker {
 
 i {
   font-size: 24px;
-  color: yellowgreen;
+  color: var(--secondary-color);
 }
 button {
   background: none;
   border: none;
+}
+
+i:hover {
+  color: var(--secondary-hover-color);
+}
+
+i:active {
+  color: var(--secondary-active-color);
 }
