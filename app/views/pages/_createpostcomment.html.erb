@@ -3,9 +3,16 @@
     <%= cl_image_tag @user.avatar.key, class: "contact-profile" %>
   <% end %>
   <%= form_with(model: [@post, @comment], class: "form-inline", data: { action: "turbo:submit-end->post-comment#resetForm", controller:"emoji" }) do |f| %>
-  <%= f.text_area :content, placeholder: "Comment this post here...", data: { emoji_target: "input", action: "emoji-pick->emoji#add" } %>
-  <button type="button" data-action="click->emoji#togglePicker"><i class="fa-solid fa-face-laugh-beam"></i></button>
-  <unicode-emoji-picker  data-emoji-target="emoji" data-action="emoji-pick->emoji#add" class="hidden"></unicode-emoji-picker>
-  <%= f.submit class: "button" %>
+    <%= f.text_area :content, placeholder: "Comment this post here...", data: { emoji_target: "input", action: "emoji-pick->emoji#add" } %>
+    <button type="button" data-action="click->emoji#togglePicker"><i class="fa-solid fa-face-laugh-beam"></i></button>
+    <unicode-emoji-picker  data-emoji-target="emoji" data-action="emoji-pick->emoji#add" class="hidden"></unicode-emoji-picker>
+    <label for="<%= "add_image_comment_button_#{@post.id}" %>">
+      <i class="fa-solid fa-image"></i>
+    </label>
+    <%= f.file_field :comment_image,
+                      id: "add_image_comment_button_#{@post.id}",
+                      class: "add_image_button",
+                      input_html: {  multiple: true } %>
+    <%= f.submit class: "button" %>
   <% end %>
 </div>
