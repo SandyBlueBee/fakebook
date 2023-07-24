@@ -1,0 +1,16 @@
+<!-- app/views/posts/edit.html.erb -->
+<div class="post-edit">
+  <%= form_with(model: @post, url: post_path(@post), method: :put, class: "edit-post-form") do |f| %>
+    <div class="post-header">
+      <div class="post-display-user">
+        <% if @post.user.avatar.present? %>
+          <%= cl_image_tag @post.user.avatar.key, class: "contact-profile" %>
+        <% end %>
+        <h3><%= link_to "#{@post.user.first_name} #{@post.user.last_name}", profile_path(@post.user) %></h3>
+      </div>
+    </div>
+    <%= f.text_area :content, placeholder: "Edit your post here...", value: @post.content %>
+    <%= f.submit "Update", class: "button" %>
+  <% end %>
+</div>
+

@@ -65,6 +65,11 @@
 
       <div class="actions">
         <%= f.submit "Update", class: "button" %>
+        <!-- Delete -->
+        <%= link_to 'Delete my account', user_registration_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to permanently delete your profile? This action is irreversible."} %>
+        <br>
+        <!-- Back -->
+        <%= link_to "Back", :back %>
       </div>
     <% end %>
   </div>
