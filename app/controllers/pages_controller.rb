@@ -16,11 +16,11 @@ class PagesController < ApplicationController
     @chatroom = @chatrooms.joins(:users).where(users: { id: params[:user_id] }).first
     @notifications = current_user.notifications.order(created_at: :desc)
     @notifications_by_user = {}
-       @users.each do |user|
+    @users.each do |user|
       if user == current_user
-        @notifications_by_user[user.id] = user.notifications.unread.count
-      else
         @notifications_by_user[user.id] = 0
+      else
+        @notifications_by_user[user.id] = current_user.notifications.select { |notification| notification.params[:sender].id == user.id }.count
       end
     end
   end
