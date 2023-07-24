@@ -20,19 +20,19 @@ class ChatroomsController < ApplicationController
 
   private
 
-  def find_or_create_chatroom(user_id)
-    current_user_chatrooms = current_user.chatrooms
-    other_user_chatrooms = User.find(user_id).chatrooms
-    common_chatrooms = current_user_chatrooms & other_user_chatrooms
+  # def find_or_create_chatroom(user_id)
+  #   current_user_chatrooms = current_user.chatrooms
+  #   other_user_chatrooms = User.find(user_id).chatrooms
+  #   common_chatrooms = current_user_chatrooms & other_user_chatrooms
 
-    if common_chatrooms.present?
-      common_chatrooms.first
-    else
-      chatroom = Chatroom.create
-      chatroom.users << current_user
-      chatroom.users << User.find(user_id)
-      chatroom
-    end
-    # raise
-  end
+  #   if common_chatrooms.present?
+  #     common_chatrooms.first
+  #   else
+  #     chatroom = Chatroom.create
+  #     chatroom.users << current_user
+  #     chatroom.users << User.find(user_id)
+  #     chatroom
+  #   end
+  #   # raise
+  # end
 end

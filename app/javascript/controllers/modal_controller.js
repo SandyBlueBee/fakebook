@@ -7,7 +7,7 @@ export default class extends Controller {
   // static classes = ["hidden"];
 
   connect() {
-    console.log("Modal is in the House!")
+    // console.log("Modal is in the House!")
     this.conversationIds = []
   }
 
@@ -15,7 +15,7 @@ export default class extends Controller {
     const userId = event.currentTarget.dataset.userId
     // "https://localhost:3000/chatrooms?user_id=1"
     // console.log(url);
-    // console.log(userId)  
+    // console.log(userId)
     if (this.conversationIds.includes(userId)) {
       // remove the user from the list of users in the chatroom
       this.conversationIds.splice(this.conversationIds.indexOf(userId), 1);
@@ -23,7 +23,7 @@ export default class extends Controller {
       // console.log(userId);
       // console.log(this.modalTargets);
       const modal = document.querySelectorAll(`[data-user-id="${userId}"]`)[1];
-      console.log(modal);
+      // console.log(modal);
       modal.remove();
 
     }else {
@@ -47,4 +47,5 @@ export default class extends Controller {
         })
     }
   }
+  
 }

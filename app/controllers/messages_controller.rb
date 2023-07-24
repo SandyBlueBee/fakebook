@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
 
+  after_action :notify_recipient, only: :create
+
   def create
     @chatroom = Chatroom.find(params[:chatroom_id])
     @message = Message.new(message_params)
@@ -11,6 +13,7 @@ class MessagesController < ApplicationController
       render_to_string(partial: "message", locals: {message: @message})
     )
     head :ok
+    # MessageNotification.with(message: "Un nouveau post a été créé !").deliver(current_user)
     else
       # render "chatrooms/show", status: :unprocessable_entity
       flash[:alert] = 'You cannot send an empty message.'
@@ -18,6 +21,12 @@ class MessagesController < ApplicationController
   end
 
   private
+
+  def notify_recipient
+    @recipient = @chatroom.users.reject { |user| user == current_user }
+    MessageNotification.with(message: "Un nouveau post a été créé !", sender: current_user).deliver(@recipient)
+
+  end
 
   def message_params
     params.require(:message).permit(:content, :message_image)
