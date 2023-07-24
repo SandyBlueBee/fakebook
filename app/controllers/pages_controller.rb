@@ -12,6 +12,11 @@ class PagesController < ApplicationController
     @comment.post = @post
     @chatrooms = current_user.chatrooms
     @chatroom = @chatrooms.joins(:users).where(users: { id: params[:user_id] }).first
+    @notifications = current_user.notifications.order(created_at: :desc)
+    @notifications_by_user = {}
+    @users.each do |user|
+      @notifications_by_user[user.id] = user.notifications.unread.count
+    end
   end
 
   def profile
