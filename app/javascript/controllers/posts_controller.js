@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="posts"
 export default class extends Controller {
-  static targets = ["commentshow", "commentform"]
+  static targets = ["commentshow", "commentform", "postEdit"]
   connect() {
     console.log("Stimulus post is in the House!")
   }
@@ -16,4 +16,10 @@ export default class extends Controller {
   commentNew() {
     this.commentformTarget.classList.toggle("visible");
   }
+
+  // edit(event) {
+  //   event.preventDefault();
+  //   this.postEditTarget.classList.remove("hidden");
+  // }
+
 }

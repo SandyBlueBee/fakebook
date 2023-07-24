@@ -1,4 +1,4 @@
-.contact-card{
+.contact-card {
   background-color: var(--background-color);
   width: 100%;
   display: flex;
@@ -6,8 +6,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 5px;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .contact-profile {
@@ -15,4 +14,5 @@
   height: 35px;
   object-fit: cover;
   border-radius: 50%;
+  overflow: hidden;
 }

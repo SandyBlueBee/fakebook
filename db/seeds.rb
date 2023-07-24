@@ -1,6 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
 
 
 Message.destroy_all
@@ -8,9 +7,7 @@ User.destroy_all
 Post.destroy_all
 
 puts "Creating users..."
-# User.create!(first_name: "Yoann", last_name: "Morillo", gender: "male", email:"yoann@test.com", password: "azerty")
-# User.create!(first_name: "Youcef", last_name: "Haraghi", gender: "male", email:"youcef@test.com", password: "azerty")
-# User.create!(first_name: "Sandy", last_name: "Blue", gender: "female", email:"sandy@test.com", password: "azerty")
+
 file_yoann = URI.open("https://res.cloudinary.com/dsu8pswsx/image/upload/v1689088770/development/Fakebook/Git_wmkenh.jpg")
 yoann = User.new(
   email: "yoann@test.com",
@@ -37,9 +34,9 @@ file_elise = URI.open("https://res.cloudinary.com/dsu8pswsx/image/upload/v168908
 elise = User.new(
   email: "elise@test.com",
   password: "azerty",
-  first_name: "elise",
+  first_name: "Elise",
   last_name: "Rochaix",
-  bio: "Hey, it's mom."
+  bio: "Hey, It's mom."
 )
 elise.avatar.attach(io: file_elise, filename: "FB_IMG_1591652523870_harncz.jpg", content_type: "image/jpg")
 elise.save
@@ -48,12 +45,13 @@ file_youcef = URI.open("https://res.cloudinary.com/dsu8pswsx/image/upload/v16890
 youcef = User.new(
   email: "youcef@test.com",
   password: "azerty",
-  first_name: "youcef",
+  first_name: "Youcef",
   last_name: "Haraghi",
   bio: "Hey Buddy!"
 )
 youcef.avatar.attach(io: file_youcef, filename: "Git_wmkenh.jpg", content_type: "image/jpg")
 youcef.save
+
 puts "Creating posts..."
 
 Post.create!(content: "Hi SANNDDYYYYY", user_id: yoann.id)

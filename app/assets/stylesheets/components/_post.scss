@@ -45,6 +45,43 @@
 
 // post options
 
+.post-options {
+  position: relative;
+}
+
+.post-option-dots {
+  cursor: pointer;
+  height: 30px;
+}
+
+.post-options-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+}
+
+.post-options:hover .post-options-menu {
+  display: block;
+}
+
+.post-options-menu a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+  color: #333;
+}
+
+.post-options-menu a:hover {
+  background-color: #f2f2f2;
+}
+
+
 .post-options-hover {
   border-radius: 50%;
   height: 40px;
@@ -62,9 +99,6 @@
   background-color: var(--shadow-color);
 }
 
-.post-option-dots {
-  height: 30px;
-}
 
 // post content
 
@@ -173,4 +207,44 @@ textarea {
 }
 .hidden {
   display: none;
+}
+
+// post Edit
+
+/* Ton fichier CSS */
+.post-edit {
+  width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+}
+
+.post-display-user h3 {
+  margin-left: 10px;
+}
+
+.edit-post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-post-form textarea {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.edit-post-form input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #569F9F;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-post-form input[type="submit"]:hover {
+  background-color: #95C6C6;
 }
