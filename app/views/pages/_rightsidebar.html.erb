@@ -1,6 +1,15 @@
 <div class="section-right">
-  <h3>pages:</h3>
-  <p>Feature coming soon</p>
+  <h3>Pages</h3>
+  <% @pages.each do |page| %>
+    <%= link_to page_path(page) do %>
+      <div class="contact-card">
+        <% if page.avatar.present? %>
+          <%= cl_image_tag page.avatar.key, class: "contact-profile" %>
+        <% end %>
+        <p><%= page.name %></p>
+      </div>
+    <% end %>
+  <% end %>
   <h3>Contacts:</h3>
   <% @users.each do |user| %>
     <div class="contact-card" data-user-id="<%= user.id %>" data-action="click->modal#toggle">

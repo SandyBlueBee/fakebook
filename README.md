@@ -9,19 +9,20 @@ This is simply a project between passionate Le Wagon alumni developers. We are n
 
 ### [Sandra Yukna (Sandy)](https://github.com/SandyBlueBee)
 Project initialializer
-* Front-end: pages design (home, profile)
-* Front-end: components design (posts, comments, chatrooms)
+* Front-end: pages design (home, profile, pages)
+* Front-end: components design (posts, comments, chatrooms, pages)
 * Back-end: users, posts, comments
 * Back-end: tests conception
+
+### [Youcef Haraghi](https://github.com/Bakayouyou)
+Back-end messaging developer
+* Back-end: chatrooms(page: messages, app modals, websocket)
+* Back-end: notifications(gem: noticed)
 
 ### [Yoann Morillo](https://github.com/yoann69)
 Digital media manager
 * Back-end: Cloudinary(users, posts)
 * Back-end: i18n translations (EN, FR)
-
-### [Youcef Haraghi](https://github.com/Bakayouyou)
-Back-end messaging developer
-* Back-end: chatrooms(page: messages, app modals, websocket)
 
 ### [Elise Rochaix](https://github.com/E-Rx)
 App testing developer
@@ -31,12 +32,14 @@ App testing developer
 
 ### Ruby version
 ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-linux]
+
 ### Installation steps
 ```
 yarn install
 bundle install
 rails db:create:migrate:seed
 ```
+
 ### Main gems used
 * Webpack
 * User devise

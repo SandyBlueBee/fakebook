@@ -11,7 +11,7 @@
 
       <div class="post-options">
         <% if post.user == current_user %>
-        <%= image_tag "option-dots.png", alt: "Options", class: "post-option-dots" %>
+        <%= image_tag "option-dots.png", alt: "Options", class: "post-option-dots post-button", style:"border-radius: 50%" %>
           <div class="post-options-menu">
             <%= link_to "Edit", edit_post_path(post), class: 'edit-link' %>
             <%= link_to 'Delete', posts_destroy_path(post), class: "delete-link", data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this post?"} %>

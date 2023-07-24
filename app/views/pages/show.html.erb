@@ -1,0 +1,23 @@
+<div class="profile-background">
+  <% if @page.background_image.present? %>
+    <%= cl_image_tag @page.background_image.key, class: "profile-background-img" %>
+  <% else %>
+    <%= image_tag ("user-background-default.jpg"), class: "profile-background-img" %>
+  <% end %>
+</div>
+<div class="container container-margin">
+  <div class="section align-center profile-about-me">
+    <% if @page.avatar.present? %>
+      <%= cl_image_tag @page.avatar.key, class: "profile-face" %>
+    <% end %>
+    <h2>About me</h2>
+    <div>
+      <%# <p>Gender: <%= @user.gender %><%#</p> %>
+      <p class="profile-bio"><%= @page.bio %></p>
+      <p><strong>Category:</strong> <%= @page.category %></p>
+    </div>
+  </div>
+  <div style="width: 100%">
+    <h1><%= @page.name %></h1>
+  </div>
+</div>
