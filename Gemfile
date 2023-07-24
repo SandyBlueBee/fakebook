@@ -2,6 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
+gem "font-awesome-sass", "~> 6.4.0"
 
 # Use Sass to process CSS
 gem "sassc-rails"
@@ -75,8 +76,11 @@ end
 gem "devise"
 
 gem "simple_form"
-
+gem "pry-byebug"
 gem "cloudinary"
 gem "dotenv-rails", groups: [:development, :test]
 
-
+# Run against this stable release
+group :test do
+  gem 'rspec-rails'
+end

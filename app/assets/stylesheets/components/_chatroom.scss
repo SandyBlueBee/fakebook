@@ -58,6 +58,7 @@
 /* chatroom content (messages and footer) */
 .chatroom-content {
   //size & shape
+  position: relative;
   height: 400px;
   box-sizing: border-box;
   display: flex;

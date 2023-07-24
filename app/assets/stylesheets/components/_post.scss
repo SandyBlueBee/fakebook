@@ -2,7 +2,7 @@
 
 .post-feed {
   width: 100%;
-  max-width: 700px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -103,10 +103,27 @@
 // post content
 
 .post-content {
+  // Sizing
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
-  // border: 1px solid blue;
+  // position of children
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.post-content-text {
+  width: 100%;
+}
+
+.post-image {
+  width: fit-content;
+  max-width: 100%;
+  max-height: 60vh;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 // post footer
@@ -169,11 +186,12 @@
 
 .post-comment-new {
   display: none;
+  position: relative;
   flex-direction: row;
   align-items: center;
   border-top: 1px solid var(--shadow-color);
   gap: 10px;
-  padding: 0px 5px;
+  padding: 0px 10px;
 }
 
 textarea {
@@ -209,9 +227,10 @@ textarea {
   display: none;
 }
 
+
 // post Edit
 
-/* Ton fichier CSS */
+
 .post-edit {
   width: 400px;
   padding: 20px;
@@ -247,4 +266,12 @@ textarea {
 
 .edit-post-form input[type="submit"]:hover {
   background-color: #95C6C6;
+
+.upload_image input {
+  background-color: #2c3e50;
+  background-image: none;
+  border: none;
+  color: #FFF;
+  padding: 5px 10px 5px 10px;
+
 }

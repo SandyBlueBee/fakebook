@@ -3,7 +3,14 @@
   <%= cl_image_tag @user.avatar.key, class: "contact-profile" %>
     <% end %>
   <%= form_with(model: [@post], class: "form-post-new form-inline") do |f| %>
-  <%= f.text_area :content, placeholder: "What are you thinking about today?" %>
+    <%= f.text_area :content, placeholder: "What are you thinking about today?" %>
+    <label for="add_image_button">
+      <i class="fa-solid fa-image"></i>
+    </label>
+    <%= f.file_field :post_image,
+                      id: 'add_image_button',
+                      class: "add_image_button",
+                      input_html: {  multiple: true } %>
   <%= f.submit class: "button" %>
 <% end %>
 </div>

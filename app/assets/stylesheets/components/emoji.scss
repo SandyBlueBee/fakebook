@@ -1,0 +1,40 @@
+unicode-emoji-picker {
+  // width: 40%;
+  // height: 40%;
+  font-size: 14px;
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  --fill-color: var(--section-color);
+  --text-color: #fffffc;
+  --box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.35);
+  --filters-border-color: #30302a;
+  --filter-fill-color-hover: #454540;
+  --content-scrollbar-thumb-fill-color: #50504a;
+  --content-scrollbar-thumb-fill-color-hover: #76766f;
+  --filter-active-marker-border-color: #595955;
+  --title-bar-fill-color: var(--section-color);
+  --search-input-border-color: var(--section-color);
+  --search-input-border-color-hover: #eee;
+  --emoji-border-color-hover: #595955;
+  --variations-backdrop-fill-color: rgba(57, 57, 55, 0.8);
+  --emoji-variation-marker-border-color: #50504a;
+  --emoji-variation-marker-border-color-hover: #76766f;
+}
+
+i {
+  font-size: 24px;
+  color: var(--secondary-color);
+}
+button {
+  background: none;
+  border: none;
+}
+
+i:hover {
+  color: var(--secondary-hover-color);
+}
+
+i:active {
+  color: var(--secondary-active-color);
+}
