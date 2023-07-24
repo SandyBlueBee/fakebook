@@ -12,7 +12,8 @@ class MessagesController < ApplicationController
     )
     head :ok
     else
-      render "chatrooms/show", status: :unprocessable_entity
+      # render "chatrooms/show", status: :unprocessable_entity
+      flash[:alert] = 'You cannot send an empty message.'
     end
   end
 
