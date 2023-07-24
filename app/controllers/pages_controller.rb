@@ -6,16 +6,22 @@ class PagesController < ApplicationController
     @posts = Post.all.sort_by { |post| post.created_at }.reverse
     @user = current_user
     @post = Post.new
+
     @comment = Comment.new
+    @comment.post = @post
     @like = Like.new
     @like.user = current_user
-    @comment.post = @post
+
     @chatrooms = current_user.chatrooms
     @chatroom = @chatrooms.joins(:users).where(users: { id: params[:user_id] }).first
     @notifications = current_user.notifications.order(created_at: :desc)
     @notifications_by_user = {}
-    @users.each do |user|
-      @notifications_by_user[user.id] = user.notifications.unread.count
+       @users.each do |user|
+      if user == current_user
+        @notifications_by_user[user.id] = user.notifications.unread.count
+      else
+        @notifications_by_user[user.id] = 0
+      end
     end
   end
 
