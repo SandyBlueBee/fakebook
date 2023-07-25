@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!
-
+  protect_from_forgery with: :exception
   def home
     @users = User.all
     @posts = Post.all.sort_by { |post| post.created_at }.reverse
@@ -14,8 +14,11 @@ class PagesController < ApplicationController
 
     @chatrooms = current_user.chatrooms
     @chatroom = @chatrooms.joins(:users).where(users: { id: params[:user_id] }).first
+
+
     @notifications = current_user.notifications.order(created_at: :desc)
     @notifications_by_user = {}
+
     @users.each do |user|
       if user == current_user
         @notifications_by_user[user.id] = 0
@@ -23,7 +26,16 @@ class PagesController < ApplicationController
         @notifications_by_user[user.id] = current_user.notifications.select { |notification| notification.params[:sender].id == user.id }.count
       end
     end
+
   end
+
+  def mark_as_read
+    @notifications = current_user.notifications
+    @notifications.update_all(read_at: Time.zone.now)
+    render json: { success: true }
+    head :ok
+  end
+
 
   def profile
     @users = User.all

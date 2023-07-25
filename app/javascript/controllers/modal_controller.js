@@ -13,24 +13,18 @@ export default class extends Controller {
 
   toggle(event) {
     const userId = event.currentTarget.dataset.userId
-    // "https://localhost:3000/chatrooms?user_id=1"
-    // console.log(url);
-    // console.log(userId)
     if (this.conversationIds.includes(userId)) {
       // remove the user from the list of users in the chatroom
       this.conversationIds.splice(this.conversationIds.indexOf(userId), 1);
-      // console.log("remove");
-      // console.log(userId);
-      // console.log(this.modalTargets);
       const modal = document.querySelectorAll(`[data-user-id="${userId}"]`)[1];
-      // console.log(modal);
       modal.remove();
 
     }else {
-      // console.log("Open modal");
       const url = new URL(window.location.href);
       url.pathname = "/chatrooms"
       url.searchParams.set("user_id", userId);
+      // console.log(url);
+      // "https://localhost:3000/chatrooms?user_id=1"
       this.conversationIds.push(userId);
       fetch(url, {
         method: "POST",
@@ -41,11 +35,27 @@ export default class extends Controller {
       })
         .then(response => response.json())
         .then(data => {
-          // console.log(data);
           this.chatroomsTarget.insertAdjacentHTML("beforeend", data.partial)
-
         })
     }
+    this.read(event);
   }
-  
+
+  read(event) {
+    const url = new URL(window.location.href);
+    url.pathname = `/mark_notifications_as_read`
+    console.log(url);
+    // "https://localhost:3000/mark_notifications_as_read"
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content,
+      }
+    })
+    .catch(error => {
+      console.error("Fetch Error:", error);
+    });
+  }
 }
