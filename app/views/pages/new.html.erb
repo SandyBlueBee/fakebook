@@ -1,0 +1,27 @@
+<div class="container-devise">
+  <div class="card-devise">
+    <h2>Create a new page</h2>
+    <%= form_for(@page) do |f| %>
+      <div class="form-inputs">
+        <%= f.label :name, required: true %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "Name of your page" %>
+
+        <%= f.label :bio, required: false %>
+        <%= f.text_field :bio, autocomplete: "Write a small bio about yourself" %>
+
+        <%= f.label :avatar, required: true %>
+        <%= f.file_field :avatar, autocomplete: "avatar" %>
+
+        <%= f.label :background_image, required: true %>
+        <%= f.file_field :background_image, autocomplete: "background_image" %>
+
+        <%= f.label :category, required: true %>
+        <%= f.select :category,  options_for_select(["education", "work"])%>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "Save", class:"button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="page-layout">
+  <%= render "pages/leftsidebar" %>
+  <div>
+    <h3>Pages</h3>
+    <% @pages.each do |page| %>
+      <%= link_to page_path(page) do %>
+        <div class="contact-card">
+          <% if page.avatar.present? %>
+            <%= cl_image_tag page.avatar.key, class: "contact-profile" %>
+          <% end %>
+          <p><%= page.name %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%# <%= render "pages/rightsidebar" %>
+</div>
