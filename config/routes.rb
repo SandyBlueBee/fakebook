@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'notifications/index'
+  post '/mark_notifications_as_read', to: 'pages#mark_as_read', as: :mark_notifications_as_read
 
   devise_for :users
 

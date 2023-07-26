@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!
 
+  protect_from_forgery with: :exception
+
+
   def index
     @pages = Page.all
     @users = User.all
@@ -43,16 +46,31 @@ class PagesController < ApplicationController
     # right side bar
     @chatrooms = current_user.chatrooms
     @chatroom = @chatrooms.joins(:users).where(users: { id: params[:user_id] }).first
+
+
     @notifications = current_user.notifications.order(created_at: :desc)
     @notifications_by_user = {}
+
     @users.each do |user|
       if user == current_user
         @notifications_by_user[user.id] = 0
       else
-        @notifications_by_user[user.id] = current_user.notifications.select { |notification| notification.params[:sender].id == user.id }.count
+        @notifications_by_user[user.id] = current_user.notifications.unread.select { |notification| notification.params[:sender].id == user.id }.count
       end
     end
+
   end
+
+  def mark_as_read
+    @notifications = current_user.notifications
+    # @notifications.update_all(read_at: Time.zone.now)
+      @notifications.all.unread.each {|notification| notification.mark_as_read! }
+    @users = User.all
+    # @notifications.count = 0
+    render json: { success: true }
+    head :ok
+  end
+
 
   def profile
     @users = User.all

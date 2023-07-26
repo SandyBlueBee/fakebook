@@ -4,7 +4,7 @@ import { EmojiPickerElement } from 'unicode-emoji-picker';
 export default class extends Controller {
   static targets = ["emoji", "input"]
   connect() {
-    console.log("Emoji is in the House!");
+    // console.log("Emoji is in the House!");
   }
     add(event) {
         event.preventDefault();

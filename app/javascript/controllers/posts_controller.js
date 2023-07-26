@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["commentshow", "commentform", "postEdit"]
   connect() {
-    console.log("Stimulus post is in the House!")
+    // console.log("Stimulus post is in the House!")
   }
 
   commentShow() {
