@@ -17,16 +17,15 @@
         <%= cl_image_tag user.avatar.key, class: "contact-profile" %>
       <% end %>
       <p><%= user.first_name %> <%= user.last_name %></p>
-      <div class="<%= current_user.notifications.unread.count > 0 ? 'notification-bell' : '' %>">
-        <% if @notifications.unread %>
+      <% if @notifications_by_user[user.id] > 0 %>
+        <div class="notification-bell">
           <i class="fa fa-bell"></i>
-          <span class="<%= current_user.notifications.unread.count > 0 ? 'notification-count' : '' %>"><%= @notifications_by_user[user.id] %></span>
-      </div>
-        <% else %>
-          <%= @notifications_by_user[user.id] = 0 %>
-        <% end %>
+          <span class="notification-count"><%= @notifications_by_user[user.id] %></span>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
+
 
 <%= console %>
