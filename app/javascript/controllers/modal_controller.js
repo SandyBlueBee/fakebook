@@ -61,10 +61,10 @@ export default class extends Controller {
   }
 
   resetNotificationCount(userId) {
-    const notificationElement = document.querySelector(`[data-user-id="${userId}"] .notification`);
+    const notificationElement = document.querySelector(`[data-user-id="${userId}"] .notification-count`);
     if (notificationElement) {
       notificationElement.textContent = '0';
-      notificationElement.classList.remove('notification');
+      notificationElement.classList.remove('notification-count');
     }
   }
 }

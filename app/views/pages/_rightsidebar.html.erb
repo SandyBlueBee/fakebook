@@ -8,13 +8,14 @@
         <%= cl_image_tag user.avatar.key, class: "contact-profile" %>
       <% end %>
       <p><%= user.first_name %> <%= user.last_name %></p>
-      <p class="<%= current_user.notifications.unread.count > 0 ? 'notification' : '' %>">
+      <div class="<%= current_user.notifications.unread.count > 0 ? 'notification-bell' : '' %>">
         <% if @notifications.unread %>
-          <%= @notifications_by_user[user.id] %>
+          <i class="fa fa-bell"></i>
+          <span class="<%= current_user.notifications.unread.count > 0 ? 'notification-count' : '' %>"><%= @notifications_by_user[user.id] %></span>
+      </div>
         <% else %>
           <%= @notifications_by_user[user.id] = 0 %>
         <% end %>
-      </p>
     </div>
   <% end %>
 </div>

@@ -4,6 +4,9 @@
   height: 20px;
   background-color: black;
 }
+.none {
+  display: none;
+}
 
 .notification-bell {
   position: relative;
@@ -25,5 +28,5 @@
   padding: 4px 8px;
   font-size: 14px;
   font-weight: bold;
-  display: none;
+  display: block;
 }
