@@ -1,7 +1,38 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!
+
   protect_from_forgery with: :exception
+
+
+  def index
+    @pages = Page.all
+    @users = User.all
+  end
+
+  def show
+    @page = Page.find(params[:id])
+  end
+
+  def new
+    @page = Page.new
+  end
+
+  def create
+    @user = current_user
+    @page = Page.new(page_params)
+    @page.user = @user
+    if @page.save
+      redirect_to page_path(@page), notice: 'Comment created successfully.'
+    else
+      flash[:alert] = 'You are not authorized to perform this action.'
+    end
+  end
+
   def home
+    # left side bar
+    @pages = Page.all
+
+    # content
     @users = User.all
     @posts = Post.all.sort_by { |post| post.created_at }.reverse
     @user = current_user
@@ -12,6 +43,7 @@ class PagesController < ApplicationController
     @like = Like.new
     @like.user = current_user
 
+    # right side bar
     @chatrooms = current_user.chatrooms
     @chatroom = @chatrooms.joins(:users).where(users: { id: params[:user_id] }).first
 
@@ -54,5 +86,11 @@ class PagesController < ApplicationController
     @posts = @user.posts.sort_by { |post| post.created_at }.reverse
     @comment = Comment.new
     @comment.post = @post
+  end
+
+  private
+
+  def page_params
+    params.require(:page).permit(:name, :bio, :avatar, :background_image, :category)
   end
 end

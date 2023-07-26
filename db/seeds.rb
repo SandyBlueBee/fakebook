@@ -1,14 +1,28 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
-Message.destroy_all
+#DELETES
+
+puts "Deleting everything..."
 User.destroy_all
 Post.destroy_all
+Message.destroy_all
+Page.destroy_all
 
+# USERS
 puts "Creating users..."
 
+fakegod = User.new(
+  email: "admin@test.com",
+  password: "azerty",
+  first_name: "Fake",
+  last_name: "God",
+  bio: "Hey, I'm the Fakebook god. What of it??"
+)
 
-file_yoann = URI.open("https://res.cloudinary.com/dsu8pswsx/image/upload/v1689088770/development/Fakebook/Git_wmkenh.jpg")
+file_fakegod = URI.open("#{Rails.root}/app/assets/images/seed/ghosts.jpg")
+fakegod.avatar.attach(io: file_fakegod, filename: "ghost.jpg", content_type: "image/jpg")
+fakegod.save
 
 yoann = User.new(
   email: "yoann@test.com",
@@ -56,6 +70,7 @@ youcef.avatar.attach(io: file_youcef, filename: "youcef.jpg", content_type: "ima
 youcef.save!
 
 
+# POSTS
 puts "Creating posts..."
 
 Post.create!(content: "Hi SANNDDYYYYY", user_id: yoann.id)
@@ -77,6 +92,17 @@ file_yoann_image = File.open("#{Rails.root}/app/assets/images/seed/we-love-benji
 post_yoann.post_image.attach(io: file_yoann_image, filename: "we-love-benji.jpg", content_type: "image/jpg")
 post_yoann.save!
 
-# file_youcef = URI.open('https://musicart.xboxlive.com/7/6e5b6500-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080')
-# youcef = User.create!(first_name: "Youcef", last_name: "Haraghi", gender: "male", email:"youcef@test.com", password: "azerty")
-# youcef.avatar.attach(io: file_youcef, filename: "tony_strak_y8t6qx.jpg", content_type: "image/jpg")
+# PAGES
+puts "Creating pages..."
+
+lewagon = Page.new(name: "Le Wagon",
+                  bio: "Join our immersive courses in web development and data to transform your career and access new opportunities.",
+                  user: fakegod,
+                  category: "education")
+lewagon_avatar = File.open("#{Rails.root}/app/assets/images/seed/wagon.png")
+lewagon.avatar.attach(io: lewagon_avatar, filename: "logo-le-wagon.png", content_type: "image/png")
+lewagon_background = File.open("#{Rails.root}/app/assets/images/seed/lewagon-background.jpeg")
+lewagon.background_image.attach(io: lewagon_background, filename: "background-le-wagon.png", content_type: "image/jpeg")
+lewagon.save
+
+puts "WE DID IT! God save Fakebook :)"
