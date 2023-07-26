@@ -39,12 +39,13 @@ export default class extends Controller {
         })
     }
     this.read(event);
+    this.resetNotificationCount(userId);
   }
 
   read(event) {
     const url = new URL(window.location.href);
     url.pathname = `/mark_notifications_as_read`
-    console.log(url);
+    // console.log(url);
     // "https://localhost:3000/mark_notifications_as_read"
     fetch(url, {
       method: "POST",
@@ -57,5 +58,13 @@ export default class extends Controller {
     .catch(error => {
       console.error("Fetch Error:", error);
     });
+  }
+
+  resetNotificationCount(userId) {
+    const notificationElement = document.querySelector(`[data-user-id="${userId}"] .notification`);
+    if (notificationElement) {
+      notificationElement.textContent = '0';
+      notificationElement.classList.remove('notification');
+    }
   }
 }

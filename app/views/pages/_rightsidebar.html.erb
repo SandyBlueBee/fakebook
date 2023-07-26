@@ -9,7 +9,11 @@
       <% end %>
       <p><%= user.first_name %> <%= user.last_name %></p>
       <p class="<%= current_user.notifications.unread.count > 0 ? 'notification' : '' %>">
-        <%= @notifications_by_user[user.id] %>
+        <% if @notifications.unread %>
+          <%= @notifications_by_user[user.id] %>
+        <% else %>
+          <%= @notifications_by_user[user.id] = 0 %>
+        <% end %>
       </p>
     </div>
   <% end %>

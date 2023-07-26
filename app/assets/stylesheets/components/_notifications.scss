@@ -1,3 +1,29 @@
 .notification {
   color: red;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+}
+
+.notification-bell {
+  position: relative;
+  display: inline-block;
+}
+
+.notification-bell .fa-bell {
+  font-size: 24px;
+  color: #555;
+}
+
+.notification-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  display: none;
 }
