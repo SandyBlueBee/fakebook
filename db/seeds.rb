@@ -92,6 +92,8 @@ file_yoann_image = File.open("#{Rails.root}/app/assets/images/seed/we-love-benji
 post_yoann.post_image.attach(io: file_yoann_image, filename: "we-love-benji.jpg", content_type: "image/jpg")
 post_yoann.save!
 
+Like.create!(user: User.last, likeable_type: "Post", likeable_id: Post.last.id )
+
 # PAGES
 puts "Creating pages..."
 

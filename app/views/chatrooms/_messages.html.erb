@@ -9,17 +9,17 @@
         <h3><%= @chatroom.name %></h3>
       <% else %>
       <div class="chatroom-avatar">
-          <% if chatroom.users.first.avatar.attached? %>
-          <%= image_tag chatroom.users.first.avatar , class:"avatar-img" %>
-          <% else %>
-          <!-- If user doesn't have a profile picture -->
-          <%= image_tag ("user-profile-default.jpg"), class:"avatar-img" %>
-          <% end %>
+        <!-- User logic -->
+        <% if chatroom.users.first == current_user %>
+          <% user = chatroom.users.last %>
+        <% else %>
+          <% user = chatroom.users.first %>
+        <% end %>
+        <%= image_tag user.avatar , class:"avatar-img" %>
       </div>
-        <h3><%= chatroom.users.first.first_name %></h3>
+        <h3><%= user.first_name %> <%= user.last_name %></h3>
     </div>
       <p data-action="click->modal#toggle" data-user-id="<%= user.id %>">X</p>
-
   </div>
   <% end %>
   <div class="chatroom-content">

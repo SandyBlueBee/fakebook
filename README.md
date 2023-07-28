@@ -10,7 +10,7 @@ This is simply a project between passionate Le Wagon alumni developers. We are n
 ### [Sandra Yukna (Sandy)](https://github.com/SandyBlueBee)
 Project initialializer
 * Front-end: pages design (home, profile, pages)
-* Front-end: components design (posts, comments, chatrooms, pages)
+* Front-end: components design (posts, comments, chatrooms, pages, messages)
 * Back-end: users, posts, comments
 * Back-end: tests conception
 
@@ -18,6 +18,7 @@ Project initialializer
 Back-end messaging developer
 * Back-end: chatrooms(page: messages, app modals, websocket)
 * Back-end: notifications(gem: noticed)
+* Back-end: emojis (unicode emoji picker)
 
 ### [Yoann Morillo](https://github.com/yoann69)
 Digital media manager
@@ -37,7 +38,7 @@ ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-linux]
 ```
 yarn install
 bundle install
-rails db:create:migrate:seed
+rails db:create db:migrate db:seed
 ```
 
 ### Main gems used
