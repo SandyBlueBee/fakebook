@@ -12,17 +12,17 @@ Page.destroy_all
 # USERS
 puts "Creating users..."
 
-fakegod = User.new(
+admin = User.new(
   email: "admin@test.com",
   password: "azerty",
-  first_name: "Fake",
-  last_name: "God",
-  bio: "Hey, I'm the Fakebook god. What of it??"
+  first_name: "Admin",
+  last_name: "Master",
+  bio: "Hey, I'm the Fakebook Admin. What of it??"
 )
 
-file_fakegod = URI.open("#{Rails.root}/app/assets/images/seed/ghosts.jpg")
-fakegod.avatar.attach(io: file_fakegod, filename: "ghost.jpg", content_type: "image/jpg")
-fakegod.save
+file_admin = URI.open("#{Rails.root}/app/assets/images/seed/ghosts.jpg")
+admin.avatar.attach(io: file_admin, filename: "ghost.jpg", content_type: "image/jpg")
+admin.save
 
 yoann = User.new(
   email: "yoann@test.com",
@@ -99,7 +99,7 @@ puts "Creating pages..."
 
 lewagon = Page.new(name: "Le Wagon",
                   bio: "Join our immersive courses in web development and data to transform your career and access new opportunities.",
-                  user: fakegod,
+                  user: admin,
                   category: "education")
 lewagon_avatar = File.open("#{Rails.root}/app/assets/images/seed/wagon.png")
 lewagon.avatar.attach(io: lewagon_avatar, filename: "logo-le-wagon.png", content_type: "image/png")
