@@ -2,6 +2,11 @@ class ChatroomsController < ApplicationController
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, only: [:create]
 
+  def index
+    @chatrooms = current_user.chatrooms
+    @chatroom = current_user.chatrooms.last
+  end
+
   def create
     @chatrooms = current_user.chatrooms
     @chatroom = @chatrooms.joins(:users).where(users: { id: params[:user_id] }).first
@@ -18,7 +23,7 @@ class ChatroomsController < ApplicationController
     render json: { partial: render_to_string(partial: "chatrooms/messages", locals: { chatroom: @chatroom, user: user }, formats: :html)}, status: :created
   end
 
-  private
+  # private
 
   # def find_or_create_chatroom(user_id)
   #   current_user_chatrooms = current_user.chatrooms

@@ -12,20 +12,19 @@
   <% end %>
   <h3>Contacts:</h3>
   <% @users.each do |user| %>
-    <div class="contact-card" data-user-id="<%= user.id %>" data-action="click->modal#toggle">
-      <% if user.avatar.present? %>
-        <%= cl_image_tag user.avatar.key, class: "contact-profile" %>
-      <% end %>
-      <p><%= user.first_name %> <%= user.last_name %></p>
-      <% if @notifications_by_user[user.id] > 0 %>
-        <div class="notification-bell">
-          <i class="fa fa-bell"></i>
-          <span class="notification-count"><%= @notifications_by_user[user.id] %></span>
-        </div>
-      <% end %>
+    <% unless user == current_user %>
+      <div class="contact-card" data-user-id="<%= user.id %>" data-action="click->modal#toggle">
+        <% if user.avatar.present? %>
+          <%= cl_image_tag user.avatar.key, class: "contact-profile" %>
+        <% end %>
+        <p><%= user.first_name %> <%= user.last_name %></p>
+        <% if @notifications_by_user[user.id] > 0 %>
+          <div class="notification-bell">
+            <i class="fa fa-bell"></i>
+            <span class="notification-count"><%= @notifications_by_user[user.id] %></span>
+          </div>
+        <% end %>
     </div>
+    <% end %>
   <% end %>
 </div>
-
-
-<%= console %>

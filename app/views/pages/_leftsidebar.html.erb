@@ -1,6 +1,6 @@
 <div class="section-left">
   <h3><%= link_to "pages", pages_path %></h3>
-  <h3><%= link_to "Add page", new_page_path %></h3>
+  <h3><%= link_to "my messages", chatrooms_path %></h3>
   <h3>Online users:</h3>
   <% @users.each do |user| %>
     <%= link_to profile_path(user.id) do %>

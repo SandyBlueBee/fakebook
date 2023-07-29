@@ -59,7 +59,8 @@
 .chatroom-content {
   //size & shape
   position: relative;
-  height: 400px;
+  height: calc(100% - 50px);
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -68,11 +69,12 @@
 
 .chatroom-messages {
   //size & shape
-  height: 100%;
+  height: calc(100% - 50px);
   padding: 10px;
   box-sizing: border-box;
   overflow: scroll;
   scroll-behavior: smooth;
+  border-bottom: 1px solid var(--shadow-color);
 }
 
 .message {

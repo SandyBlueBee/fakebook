@@ -1,0 +1,25 @@
+.messages-index {
+  width: 60vw;
+  background-color: var(--section-color);
+  margin: auto;
+  margin-top: 50px;
+  height: calc(100vh - 200px);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.messages-index-contact-list {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.messages-main-chatroom {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  overflow: hidden;
+  border: 2px solid var(--background-color);
+}
