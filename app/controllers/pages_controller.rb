@@ -58,15 +58,14 @@ class PagesController < ApplicationController
         @notifications_by_user[user.id] = current_user.notifications.unread.select { |notification| notification.params[:sender].id == user.id }.count
       end
     end
-
   end
 
   def mark_as_read
-    @notifications = current_user.notifications
     # @notifications.update_all(read_at: Time.zone.now)
-      @notifications.all.unread.each {|notification| notification.mark_as_read! }
+    # select notifications unread by current user and mark them as read
     @users = User.all
-    # @notifications.count = 0
+    @notifications = current_user.notifications.unread
+    @notifications.each(&:mark_as_read!)
     render json: { success: true }
     head :ok
   end

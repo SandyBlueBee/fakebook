@@ -9,9 +9,9 @@
   background-color: var(--section-color);
   /* position of children */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
 }
 
 .profile-bio {
@@ -23,4 +23,147 @@
   margin: 10px auto;
   /* color */
   background-color: var(--background-color);
+}
+
+
+/* card profil  */
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
+
+$green: #c4dfdf;
+
+
+.profile {
+	float: left;
+	width: 200px;
+	height: 320px;
+	text-align: center;
+
+	.image {
+		position: relative;
+		width: 70px;
+		height: 70px;
+		margin: 38px auto 0 auto;
+
+		.circle-1 {
+			position: absolute;
+			box-sizing: border-box;
+			width: 76px;
+			height: 76px;
+			top: -3px;
+			left: -3px;
+			border-width: 1px;
+			border-style: solid;
+			border-color: $green $green $green transparent;
+			border-radius: 50%;
+			transition: all 1.5s ease-in-out;
+		}
+
+		.circle-2 {
+			@extend .circle-1;
+			width: 82px;
+			height: 82px;
+			top: -6px;
+			left: -6px;
+			border-color: $green transparent $green $green;
+		}
+
+		img {
+			display: block;
+			border-radius: 50%;
+			background: #F5E8DF;
+		}
+
+		&:hover {
+			cursor: pointer;
+
+			.circle-1 {
+				transform: rotate(360deg);
+			}
+
+			.circle-2 {
+				transform: rotate(-360deg);
+			}
+
+		}
+
+	}
+
+	.name {
+		font-size: 15px;
+		font-weight: 600;
+		margin-top: 20px;
+	}
+
+	.job {
+		font-size: 11px;
+		line-height: 15px;
+	}
+
+	.actions {
+		margin-top: 33px;
+
+		.btn {
+			display: block;
+			width: 120px;
+			height: 30px;
+			margin: 0 auto 10px auto;
+			background: none;
+			border: 1px solid $green;
+			border-radius: 15px;
+			font-size: 12px;
+			font-weight: 600;
+			box-sizing: border-box;
+			transition: all .3s ease-in-out;
+			color: $green;
+
+			&:hover {
+				background: #7ee3e3;
+				color: #fff;
+			}
+		}
+	}
+
+}
+
+.stats {
+	float: left;
+  margin-left: 16px;
+
+	.box {
+		box-sizing: border-box;
+		width: 120px;
+		height: 99px;
+		background: #c4dfdf;
+		text-align: center;
+		padding-top: 28px;
+		transition: all .4s ease-in-out;
+
+		&:hover {
+			background: #7ee3e3;
+			cursor: pointer;
+		}
+
+		&:nth-child(2) {
+			margin: 1px 0;
+		}
+
+	}
+
+	span {
+		display: block;
+	}
+
+	.value {
+		font-size: 18px;
+		font-weight: 600;
+	}
+
+	.parameter {
+		font-size: 11px;
+	}
+
 }

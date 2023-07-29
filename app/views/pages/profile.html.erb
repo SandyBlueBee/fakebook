@@ -8,25 +8,54 @@
 
 <div class="container container-margin">
   <div class="section align-center profile-about-me">
-    <% if @user.avatar.present? %>
-      <%= cl_image_tag @user.avatar.key, class: "profile-face" %>
-    <% end %>
-    <h2>About me</h2>
-    <div>
-      <%# <p>Gender: <%= @user.gender %><%#</p> %>
-      <p class="profile-bio"><%= @user.bio %></p>
+    <div class="profile">
+        <div class="image">
+          <div class="circle-1"></div>
+          <div class="circle-2"></div>
+            <% if @user.avatar.present? %>
+              <%= cl_image_tag @user.avatar.key, width: "70", height: "70"%>
+            <% end %>
+        </div>
+
+        <div class="name"><%= @user.first_name %> <%= @user.last_name %>
+              <p><%= @user.bio %></p>
+        </div>
+
+        <div class="job">Develloper Web</div>
+
+        <div class="actions">
+          <button class="btn">Follow</button>
+          <button class="btn">Message</button>
+            <% if @user === current_user %>
+              <%= link_to "Edit Profile", edit_user_registration_path, class: "btn" %>
+            <% end %>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="box">
+          <span class="value"><%= current_user.posts.count %></span>
+          <span class="parameter">Posts</span>
+        </div>
+        <div class="box">
+          <span class="value"><%= current_user.likes.count %></span>
+          <span class="parameter">Likes</span>
+        </div>
+        <div class="box">
+          <span class="value"></span>
+          <span class="parameter">Follower</span>
+        </div>
+      </div>
     </div>
-    <% if @user === current_user %>
-      <%= link_to "Edit Profile", edit_user_registration_path, class: "button" %>
-    <% end %>
-  </div>
-  <div style="width: 100%">
-    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-    <div class="post-feed">
-      <% if @user == current_user %>
-        <%= render "createpost" %>
-      <% end %>
-      <%= render "feed" %>
+
+    <div style="width: 100%">
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <div class="post-feed">
+        <% if @user == current_user %>
+          <%= render "createpost" %>
+        <% end %>
+        <%= render "feed" %>
+      </div>
     </div>
-  </div>
 </div>
+
+<%= console %>
