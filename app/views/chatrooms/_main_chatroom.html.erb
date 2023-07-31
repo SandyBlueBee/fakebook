@@ -1,0 +1,44 @@
+<%# <%= render 'messages' %>
+<div class="messages-main-chatroom" data-messages-target="chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+    <!-- Main chatroom header -->
+    <div class="chatroom-header" >
+      <div style="display: flex; gap: 5px">
+        <div class="chatroom-avatar">
+          <!-- User logic -->
+          <% if @chatroom.users.first == current_user %>
+            <% user = @chatroom.users.last %>
+          <% else %>
+            <% user = @chatroom.users.first %>
+          <% end %>
+          <%= image_tag user.avatar , class:"avatar-img" %>
+        </div>
+        <h3><%= user.first_name %> <%= user.last_name %></h3>
+      </div>
+    </div>
+    <!-- Main chatroom content -->
+    <div class="chatroom-content">
+      <div class="chatroom-messages" data-chatroom-subscription-target="messages">
+        <% @chatroom.messages.each do |message| %>
+          <%= render "messages/message", message: message %>
+        <% end %>
+      </div>
+      <!-- Main chatroom add a message form -->
+      <%= simple_form_for [@chatroom, Message.new], html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm", controller:"emoji" }, class: "chatroom-footer form-inline" } do |f| %>
+        <%= f.input_field :content,
+          label: false,
+          placeholder: "Message #{@chatroom.name}",
+          wrapper_html: {class: "message-input"},
+          data: { emoji_target: "input", action: "emoji-pick->emoji#add" } %>
+        <button type="button" data-action="click->emoji#togglePicker"><i class="fa-solid fa-face-laugh-beam"></i></button>
+        <unicode-emoji-picker  data-emoji-target="emoji" data-action="emoji-pick->emoji#add" class="hidden"></unicode-emoji-picker>
+        <label for="<%= "add_image_message_button_#{@chatroom.id}" %>">
+          <i class="fa-solid fa-image"></i>
+        </label>
+        <%= f.file_field :message_image,
+                        id: "add_image_message_button_#{@chatroom.id}",
+                        class: "add_image_button",
+                        input_html: {  multiple: true } %>
+        <%= f.submit "Send", class: "button" %>
+      <% end %>
+    </div>
+  </div>

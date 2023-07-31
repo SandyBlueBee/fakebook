@@ -4,7 +4,14 @@ class ChatroomsController < ApplicationController
 
   def index
     @chatrooms = current_user.chatrooms
-    @chatroom = current_user.chatrooms.last
+    @users = User.all
+    params[:id].present? ? @chatroom = Chatroom.find(params[:id]) : @chatroom = current_user.chatrooms.last
+    respond_to do |format|
+      format.html
+      format.text do
+        render(partial: 'chatrooms/main_chatroom', locals: { chatroom: @chatroom }, formats: [:html])
+      end
+    end
   end
 
   def create
@@ -19,7 +26,6 @@ class ChatroomsController < ApplicationController
     end
 
     @messages = @chatroom.messages.order(created_at: :asc)
-
     render json: { partial: render_to_string(partial: "chatrooms/messages", locals: { chatroom: @chatroom, user: user }, formats: :html)}, status: :created
   end
 

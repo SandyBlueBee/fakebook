@@ -1,8 +1,8 @@
-<div class="section-right">
+<div class="section-right shadowed">
   <h3>Pages</h3>
   <% @pages.each do |page| %>
     <%= link_to page_path(page) do %>
-      <div class="contact-card">
+      <div class="contact-card shadowed">
         <% if page.avatar.present? %>
           <%= cl_image_tag page.avatar.key, class: "contact-profile" %>
         <% end %>
@@ -13,7 +13,7 @@
   <h3>Contacts:</h3>
   <% @users.each do |user| %>
     <% unless user == current_user %>
-      <div class="contact-card" data-user-id="<%= user.id %>" data-action="click->modal#toggle">
+      <div class="contact-card shadowed" data-user-id="<%= user.id %>" data-action="click->modal#toggle">
         <% if user.avatar.present? %>
           <%= cl_image_tag user.avatar.key, class: "contact-profile" %>
         <% end %>

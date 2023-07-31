@@ -1,10 +1,11 @@
-<div class="section-left">
-  <h3><%= link_to "pages", pages_path %></h3>
-  <h3><%= link_to "my messages", chatrooms_path %></h3>
-  <h3>Online users:</h3>
+<div class="section-left shadowed">
+  <h3><%= link_to "Home", root_path %></h3>
+  <h3><%= link_to "Messages", chatrooms_path %></h3>
+  <h3><%= link_to "Pages", pages_path %></h3>
+  <h5>Online users:</h5>
   <% @users.each do |user| %>
     <%= link_to profile_path(user.id) do %>
-      <div class="contact-card">
+      <div class="contact-card shadowed">
         <% if user.avatar.present? %>
           <%= cl_image_tag user.avatar.key, class: "contact-profile" %>
         <% end %>

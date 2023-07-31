@@ -11,12 +11,27 @@
 
 .section-left {
   width: 250px;
-  max-width: 250px;
+  box-sizing: border-box;
   background-color: var(--section-color);
   display: flex;
-  justify-content: flex-start;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 10px;
   padding: 30px;
   // background: linear-gradient(to bottom, #95C6C6 30%, #569F9F);
+}
+
+.main-section {
+  // size and color
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  box-sizing: border-box;
+  background-color: var(--section-color);
+  border-radius: 10px;
+  padding: 10px;
+  // positioning
+  margin: 10px;
+  // position of children
+  display: flex;
+  gap: 20px;
 }

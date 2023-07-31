@@ -13,6 +13,9 @@ application.register("emoji", EmojiController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import MessagesController from "./messages_controller"
+application.register("messages", MessagesController)
+
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 

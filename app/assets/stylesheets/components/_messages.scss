@@ -11,13 +11,14 @@
 }
 
 .messages-index-contact-list {
-  width: 250px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
 .messages-main-chatroom {
+  height: 100%;
   width: 100%;
   border-radius: 10px 10px 0px 0px;
   overflow: hidden;

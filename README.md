@@ -9,13 +9,14 @@ This is simply a project between passionate Le Wagon alumni developers. We are n
 
 ### [Sandra Yukna (Sandy)](https://github.com/SandyBlueBee)
 Project initialializer
-* Front-end: pages design (home, profile, pages)
+* Front-end: pages design (home, profile, messages, pages)
 * Front-end: components design (posts, comments, chatrooms, pages, messages)
 * Back-end: users, posts, comments
 * Back-end: tests conception
 
 ### [Youcef Haraghi](https://github.com/Bakayouyou)
 Back-end messaging developer
+* Front-end: Profile bio section
 * Back-end: chatrooms(page: messages, app modals, websocket)
 * Back-end: notifications(gem: noticed)
 * Back-end: emojis (unicode emoji picker)

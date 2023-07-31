@@ -33,9 +33,6 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
 
-$green: #c4dfdf;
-
-
 .profile {
 	float: left;
 	width: 200px;
@@ -57,7 +54,7 @@ $green: #c4dfdf;
 			left: -3px;
 			border-width: 1px;
 			border-style: solid;
-			border-color: $green $green $green transparent;
+			border-color: var(--secondary-color) var(--secondary-color) var(--secondary-color) transparent;
 			border-radius: 50%;
 			transition: all 1.5s ease-in-out;
 		}
@@ -68,7 +65,7 @@ $green: #c4dfdf;
 			height: 82px;
 			top: -6px;
 			left: -6px;
-			border-color: $green transparent $green $green;
+			border-color: var(--secondary-color) transparent var(--secondary-color) var(--secondary-color);
 		}
 
 		img {
@@ -112,16 +109,16 @@ $green: #c4dfdf;
 			height: 30px;
 			margin: 0 auto 10px auto;
 			background: none;
-			border: 1px solid $green;
+			border: 1px solid var(--secondary-color);
 			border-radius: 15px;
 			font-size: 12px;
 			font-weight: 600;
 			box-sizing: border-box;
 			transition: all .3s ease-in-out;
-			color: $green;
+			color: var(--secondary-color);
 
 			&:hover {
-				background: #7ee3e3;
+				background: var(--secondary-hover-color);
 				color: #fff;
 			}
 		}
@@ -137,13 +134,13 @@ $green: #c4dfdf;
 		box-sizing: border-box;
 		width: 120px;
 		height: 99px;
-		background: #c4dfdf;
+		background: var(--secondary-color);
 		text-align: center;
 		padding-top: 28px;
 		transition: all .4s ease-in-out;
 
 		&:hover {
-			background: #7ee3e3;
+			background: var(--secondary-hover-color);
 			cursor: pointer;
 		}
 

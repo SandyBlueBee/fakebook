@@ -1,6 +1,6 @@
 <% @posts.each do |post| %>
   <% @post.id = post.id %>
-  <div class="post" data-controller="posts">
+  <div class="post shadowed" data-controller="posts">
     <div class="post-header">
       <div class="post-display-user">
         <% if post.user.avatar.present? %>

@@ -4,10 +4,15 @@
   background-color: var(--secondary-color);
   font-weight: 700;
   color: white;
+  font-family: 'Open Sans', sans-serif;
   border-radius: 5px;
   width: fit-content;
   margin-top: 8px;
   margin-bottom: 8px;
+}
+
+.button a {
+  color: white;
 }
 
 .button:hover {
