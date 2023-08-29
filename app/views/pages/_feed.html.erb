@@ -6,7 +6,10 @@
         <% if post.user.avatar.present? %>
           <%= cl_image_tag post.user.avatar.key, class: "contact-profile" %>
         <% end %>
-        <h3><%= link_to "#{post.user.first_name} #{post.user.last_name}", profile_path(post.user) %></h3>
+        <div>
+          <h3 style="margin: 0"><%= link_to "#{post.user.first_name} #{post.user.last_name}", profile_path(post.user) %></h3>
+          <small><p><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></p></small>
+        </div>
       </div>
 
       <div class="post-options">
