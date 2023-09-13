@@ -64,10 +64,25 @@ class PagesController < ApplicationController
     # @notifications.update_all(read_at: Time.zone.now)
     # select notifications unread by current user and mark them as read
     @users = User.all
-    @notifications = current_user.notifications.unread
-    @notifications.each(&:mark_as_read!)
-    render json: { success: true }
-    head :ok
+    # current_user.notifications.unread.select{_1.params[:sender] == User.find(9)}
+    user_sender = User.find(params[:user_id])
+
+    # On recuperer toutes les notifications qui m'ont été envoyées par l'utilisateur
+    all_notifications_sender = current_user.notifications.unread.select do |notification|
+      notification.params[:sender] == user_sender
+    end
+
+    # On les marque comme lues
+    all_notifications_sender.each do |notification|
+      notification.mark_as_read!
+    end
+
+    respond_to do |format|
+      format.json do
+        response = { success: true, user_sender_id: user_sender.id }
+        render json: response
+      end
+    end
   end
 
 

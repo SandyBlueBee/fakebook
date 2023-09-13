@@ -38,11 +38,12 @@ export default class extends Controller {
           this.chatroomsTarget.insertAdjacentHTML("beforeend", data.partial)
         })
     }
-    this.read(event);
-    this.resetNotificationCount(userId);
+    this.read(userId);
+    // this.resetNotificationCount(userId);
   }
 
-  read(event) {
+  read(userId) {
+    // console.log("userId", userId)
     const url = new URL(window.location.href);
     url.pathname = `/mark_notifications_as_read`
     // console.log(url);
@@ -53,22 +54,29 @@ export default class extends Controller {
         "Content-Type": "application/json",
         Accept: "application/json",
         "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content,
-      }
+      },
+      body: JSON.stringify({ user_id: userId })
     })
-    .catch(error => {
-      console.error("Fetch Error:", error);
-    });
+      .then(response => response.json())
+      .then(data => {
+        const notificationElement = document.querySelector(`[data-user-id="${data.user_sender_id}"] .notification-count`);
+        if (notificationElement) {
+          console.log("sender_id", data.user_sender_id)
+          notificationElement.remove();
+        }
+      })
   }
 
-  resetNotificationCount(userId) {
-    const notificationElement = document.querySelector(`[data-user-id="${userId}"] .notification-count`);
-    const bellElement = document.querySelector(`[data-user-id="${userId}"] .notification-bell`);
+  // resetNotificationCount(userId) {
+  //   const notificationElement = document.querySelector(`[data-user-id="${userId}"] .notification-count`);
+  //   console.log(notificationElement);
+  //   const bellElement = document.querySelector(`[data-user-id="${userId}"] .notification-bell`);
 
-    if (notificationElement) {
-      notificationElement.textContent = '';
-      notificationElement.classList.remove('notification-count');
-      bellElement.remove();
+  //   if (notificationElement) {
+  //     notificationElement.textContent = '';
+  //     notificationElement.classList.remove('notification-count');
+  //     bellElement.remove();
 
-    }
-  }
+  //   }
+  // }
 }
