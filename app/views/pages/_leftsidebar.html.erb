@@ -3,7 +3,7 @@
   <h3><%= link_to "my messages", chatrooms_path %></h3>
   <h3>Online users:</h3>
   <% @users.each do |user| %>
-    <% if user.online? %>
+    <% if user.online? && user != current_user%>
       <%= link_to profile_path(user.id) do %>
         <div class="contact-card">
           <% if user.avatar.present? %>
