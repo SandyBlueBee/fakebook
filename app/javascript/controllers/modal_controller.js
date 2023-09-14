@@ -59,7 +59,8 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then(data => {
-        const notificationElement = document.querySelector(`[data-user-id="${data.user_sender_id}"] .notification-count`);
+        console.log(data);
+        const notificationElement = document.querySelector(`[data-user-id="${data.user_sender_id}"] .notification-bell`);
         if (notificationElement) {
           console.log("sender_id", data.user_sender_id)
           notificationElement.remove();

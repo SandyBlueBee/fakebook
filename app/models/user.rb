@@ -15,5 +15,8 @@ class User < ApplicationRecord
   has_one_attached :background_image
   has_many :notifications, as: :recipient, dependent: :destroy
 
+  def online?
+    updated_at > 2.minutes.ago
+  end
   # validates :email, presence: true
 end

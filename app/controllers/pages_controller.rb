@@ -48,6 +48,7 @@ class PagesController < ApplicationController
     @chatroom = @chatrooms.joins(:users).where(users: { id: params[:user_id] }).first
 
 
+
     @notifications = current_user.notifications.order(created_at: :desc)
     @notifications_by_user = {}
 
